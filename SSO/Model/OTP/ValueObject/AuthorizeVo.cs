@@ -85,15 +85,15 @@ namespace POD_SSO.Model.OTP.ValueObject
             {
                 return authorization;
             }
-            public Builder SetAuthorization(string keyId, string privateKey, SignType signType)
+            public Builder SetAuthorization(string keyId, string privateKey)
             {
                 var header = "host";
                 var dataToSign = "host: accounts.pod.land";
-                if (signType == SignType.HostDate)
-                {
-                    header += " date";
-                    dataToSign += Environment.NewLine + "date: Sat Jun 09 2018 17:47:37 GMT+0430";
-                }
+                //if (signType == SignType.HostDate)
+                //{
+                  //  header += " date";
+                    //dataToSign += Environment.NewLine + "date: Sat Jun 09 2018 17:47:37 GMT+0430";
+                //}
 
                 var signature = dataToSign.GetSignature(privateKey, HashAlgorithmName.SHA256);
                 authorization = $"Signature keyId = \"{keyId}\", signature = \"{signature}\", headers = \"{header}\"";
