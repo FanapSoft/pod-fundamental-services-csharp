@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="POD_Billing" Version="1.0.0" />
+    <PackageReference Include="POD_Dealing" Version="1.0.1" />
+    <PackageReference Include="Pod_SSO" Version="1.0.1" />
+    <PackageReference Include="POD_UserOperation" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
