@@ -2,6 +2,7 @@
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_UserOperation.Model.ValueObject
 {
@@ -10,12 +11,13 @@ namespace POD_UserOperation.Model.ValueObject
         public static Builder ConcreteBuilder => new Builder();
         public string ClientId { get; }
         public string ClientSecret { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
+
         public UserProfileVo(Builder builder)
         {
             ClientId = builder.GetClientId();
             ClientSecret = builder.GetClientSecret();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -24,7 +26,7 @@ namespace POD_UserOperation.Model.ValueObject
             private string clientSecret;
 
             [Required]
-            private string token;
+            private InternalServiceCallVo serviceCallParameters;
 
             public string GetClientId()
             {
@@ -44,17 +46,14 @@ namespace POD_UserOperation.Model.ValueObject
                 this.clientSecret = clientSecret;
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">AccessToken Or ApiToken         
-            /// توکنی که بعد از ورود به سیستم یا از پنل کسب و کار دریافت شده است
-            /// </param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -12,19 +13,25 @@ namespace POD_Billing.Model.ValueObject
         public long? Id { get; }
         public List<InvoiceItemInfoVo> InvoiceItemsInfo { get; }
         public double? PreferredTaxRate { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public ReduceInvoiceVo(Builder builder)
         {
             Id = builder.GetId();
             InvoiceItemsInfo = builder.GetInvoiceItemsInfo();
             PreferredTaxRate = builder.GetPreferredTaxRate();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
         {
             [Required] private long? id;
+
             [Required] private List<InvoiceItemInfoVo> invoiceItemsInfo;
+
             [Range(0, 1)] private double? preferredTaxRate;
+
+            [Required] private InternalServiceCallVo serviceCallParameters;
 
             public long? GetId()
             {
@@ -54,6 +61,16 @@ namespace POD_Billing.Model.ValueObject
             public Builder SetPreferredTaxRate(double preferredTaxRate)
             {
                 this.preferredTaxRate = preferredTaxRate;
+                return this;
+            }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

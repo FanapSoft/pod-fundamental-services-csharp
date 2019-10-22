@@ -1,10 +1,8 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
-using POD_SSO.Base.Enum;
 
 namespace POD_SSO.Model.OTP.ValueObject
 {
@@ -53,8 +51,8 @@ namespace POD_SSO.Model.OTP.ValueObject
                 var dataToSign = "host: accounts.pod.land";
                 //if (signType == SignType.HostDate)
                 //{
-                    //header += " date";
-                  //  dataToSign += Environment.NewLine + "date: Sat Jun 09 2018 17:47:37 GMT+0430";
+                //    header += " date";
+                //    dataToSign += Environment.NewLine + "date: Sat July 24 2019 11:25:37 GMT+0430";
                 //}
 
                 var signature = dataToSign.GetSignature(privateKey, HashAlgorithmName.SHA256);

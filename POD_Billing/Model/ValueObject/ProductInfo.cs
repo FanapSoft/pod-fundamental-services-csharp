@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
@@ -51,7 +52,7 @@ namespace POD_Billing.Model.ValueObject
 
             public Builder SetPrice(decimal price)
             {
-                this.price = price.ToString();
+                this.price = price.ToString(CultureInfo.InvariantCulture);
                 return this;
             }
 

@@ -1,4 +1,5 @@
-﻿
+﻿using POD_Base_Service.Model.ServiceOutput;
+
 namespace POD_UserOperation.Model.ServiceOutput
 {
     public class CustomerProfileSrv

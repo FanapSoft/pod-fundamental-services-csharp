@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using POD_Base_Service.Model.ServiceOutput;
 
 namespace POD_Billing.Model.ServiceOutput
 {

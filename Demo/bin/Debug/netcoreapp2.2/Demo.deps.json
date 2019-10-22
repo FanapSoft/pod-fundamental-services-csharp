@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "c7d6ed0f17d2d1ebe1b24e1feeb4aef5b7d69364"
+    "signature": "c93443ae3e81eadd5ee4a1ab01832374b19feea0"
   },
   "compilationOptions": {
     "defines": [
@@ -29,6 +29,11 @@
           "Microsoft.NETCore.App": "2.2.0",
           "POD_Billing": "1.0.0",
           "POD_Dealing": "1.0.1",
+          "POD_Neshan": "1.0.0",
+          "POD_Notification": "1.0.0",
+          "POD_Product": "1.0.0",
+          "POD_Subscription": "1.0.0",
+          "POD_Tools": "1.0.0",
           "POD_UserOperation": "1.0.1",
           "Pod_SSO": "1.0.1"
         },
@@ -37,85 +42,6 @@
         },
         "compile": {
           "Demo.dll": {}
-        }
-      },
-      "POD_Base_Service/1.0.0": {
-        "dependencies": {
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/POD_Base_Service.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/POD_Base_Service.dll": {}
-        }
-      },
-      "POD_Billing/1.0.0": {
-        "dependencies": {
-          "POD_Base_Service": "1.0.0",
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/POD_Billing.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/POD_Billing.dll": {}
-        }
-      },
-      "POD_Dealing/1.0.1": {
-        "dependencies": {
-          "POD_Base_Service": "1.0.0",
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/POD_Dealing.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/POD_Dealing.dll": {}
-        }
-      },
-      "Pod_SSO/1.0.1": {
-        "dependencies": {
-          "POD_Base_Service": "1.0.0",
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/POD_SSO.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/POD_SSO.dll": {}
-        }
-      },
-      "POD_UserOperation/1.0.1": {
-        "dependencies": {
-          "POD_Base_Service": "1.0.0",
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/POD_UserOperation.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/POD_UserOperation.dll": {}
         }
       },
       "RestSharp/106.6.9": {
@@ -127,6 +53,128 @@
         },
         "compile": {
           "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
+      "POD_Base_Service/2.0.0": {
+        "dependencies": {
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_Base_Service.dll": {}
+        },
+        "compile": {
+          "POD_Base_Service.dll": {}
+        }
+      },
+      "POD_Billing/1.0.0": {
+        "dependencies": {
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_Billing.dll": {}
+        },
+        "compile": {
+          "POD_Billing.dll": {}
+        }
+      },
+      "POD_Dealing/1.0.1": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0",
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_Dealing.dll": {}
+        },
+        "compile": {
+          "POD_Dealing.dll": {}
+        }
+      },
+      "POD_Neshan/1.0.0": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0"
+        },
+        "runtime": {
+          "POD_Neshan.dll": {}
+        },
+        "compile": {
+          "POD_Neshan.dll": {}
+        }
+      },
+      "POD_Notification/1.0.0": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0",
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_Notification.dll": {}
+        },
+        "compile": {
+          "POD_Notification.dll": {}
+        }
+      },
+      "POD_Product/1.0.0": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0"
+        },
+        "runtime": {
+          "POD_Product.dll": {}
+        },
+        "compile": {
+          "POD_Product.dll": {}
+        }
+      },
+      "Pod_SSO/1.0.1": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0",
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_SSO.dll": {}
+        },
+        "compile": {
+          "POD_SSO.dll": {}
+        }
+      },
+      "POD_Subscription/1.0.0": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0",
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_Subscription.dll": {}
+        },
+        "compile": {
+          "POD_Subscription.dll": {}
+        }
+      },
+      "POD_Tools/1.0.0": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0"
+        },
+        "runtime": {
+          "POD_Tools.dll": {}
+        },
+        "compile": {
+          "POD_Tools.dll": {}
+        }
+      },
+      "POD_UserOperation/1.0.1": {
+        "dependencies": {
+          "POD_Base_Service": "2.0.0",
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "POD_UserOperation.dll": {}
+        },
+        "compile": {
+          "POD_UserOperation.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3331,47 +3379,62 @@
       "serviceable": false,
       "sha512": ""
     },
-    "POD_Base_Service/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-k/b4IxH5Pant6mEYVFYIPf207u3Zg/cKpW1HHsiJpqdUY6/FWeuVr0+lMMUtju7bhU/k/lUEICVcazkQbCn95A==",
-      "path": "pod_base_service/1.0.0",
-      "hashPath": "pod_base_service.1.0.0.nupkg.sha512"
-    },
-    "POD_Billing/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VFDkCNXICviPJRyJuNv7lQlly9qKt0Uj7VQj2B4z0sBDT9IR/hPiCazmCoipt3mZrS6jPx+Vvi2EZ1X8967DoA==",
-      "path": "pod_billing/1.0.0",
-      "hashPath": "pod_billing.1.0.0.nupkg.sha512"
-    },
-    "POD_Dealing/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mTHdMQhHhjOxud/Pczcs9skUtKfeGACn/ROowhizg/lPQs12NedSVvIyqPOwArb5k2bbCH13nIjctSJgTf3+5A==",
-      "path": "pod_dealing/1.0.1",
-      "hashPath": "pod_dealing.1.0.1.nupkg.sha512"
-    },
-    "Pod_SSO/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-M5Xa+AqqfN3eQL6aBgSXEKq/Z7AEfoyCdMtrN25rrZ73t52058yURZn0GarS65UQJ0Bc9YRwf1AsH1UZN8MLew==",
-      "path": "pod_sso/1.0.1",
-      "hashPath": "pod_sso.1.0.1.nupkg.sha512"
-    },
-    "POD_UserOperation/1.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-IpUq654NYsp0He0ukuHLJNU/V7wJ43nD2LiZI03j1fQXHTzuDrOwKn19XFdxF+rNAoXy3TSqvW2eaHWpgBraZQ==",
-      "path": "pod_useroperation/1.0.1",
-      "hashPath": "pod_useroperation.1.0.1.nupkg.sha512"
-    },
     "RestSharp/106.6.9": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-/IAQTwlnlQcjlIyvelf+rhQcCRPy/r/0MftpNbff/D7PZVnmVXE4AnHk/F4NJJJEZbI4M+QTglB+xFkAyzr+9A==",
       "path": "restsharp/106.6.9",
       "hashPath": "restsharp.106.6.9.nupkg.sha512"
+    },
+    "POD_Base_Service/2.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Billing/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Dealing/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Neshan/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Notification/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Product/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Pod_SSO/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Subscription/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_Tools/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "POD_UserOperation/1.0.1": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

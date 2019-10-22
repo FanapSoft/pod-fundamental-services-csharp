@@ -1,0 +1,11 @@
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.deps.json
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.dll
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.pdb
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CopyComplete
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.dll
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.pdb

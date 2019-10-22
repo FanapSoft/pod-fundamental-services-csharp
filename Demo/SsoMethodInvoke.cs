@@ -16,14 +16,29 @@ namespace Demo
     {
         private readonly SsoService ssoService;
         public readonly ClientInfo ClientInfo;
-        public SsoMethodInvoke(string clientId, string clientSecret)
+
+        public SsoMethodInvoke()
         {
-            ClientInfo = new ClientInfo()
+            try
             {
-                ClientId = clientId,
-                ClientSecret = clientSecret
-            };
-           ssoService=new SsoService(ClientInfo);
+                ClientInfo = new ClientInfo
+                {
+                    ClientId = "",
+                    ClientSecret = ""
+                };
+                                                                                                                                                                                                                                                                                                          
+                ssoService = new SsoService(ClientInfo);
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine($"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
         }
 
         #region OAuth2
@@ -53,14 +68,14 @@ namespace Demo
             }
         }
 
-        public OAuthResponseSrv RefreshAccessToken(string refreshToekn)
+        public OAuthResponseSrv RefreshAccessToken()
         {
             try
             {
                 var output = new OAuthResponseSrv();
                 var refreshTokenVo = RefreshAccessTokenVo.ConcreteBuilder
                     .SetGrantType("refresh_token")
-                    .SetRefreshToken(refreshToekn)
+                    .SetRefreshToken("")
                     .Build();
                 ssoService.RefreshAccessToken(refreshTokenVo, response => Listener.GetResult(response, out output));
                     return output;
@@ -77,14 +92,14 @@ namespace Demo
             }
         }
 
-        public TokenInfoSrv GetTokenInfo(string token,TokenType tokenType)
+        public TokenInfoSrv GetTokenInfo()
         {
             try
             {
                 var output = new TokenInfoSrv();
                 var tokenInfoVo = TokenInfoVo.ConcreteBuilder
-                    .SetToken(token)
-                    .SetTokenTypeHint(tokenType)
+                    .SetToken("")
+                    .SetTokenTypeHint(TokenType.refresh_token)
                     .Build();
                 ssoService.GetTokenInfo(tokenInfoVo, response => Listener.GetResult(response, out output));
                 return output;
@@ -101,16 +116,40 @@ namespace Demo
             }
         }
 
-        public string RevokeToken(string token,RevokeTokenType revokeTokenType)
+        public string RevokeToken()
         {
             try
             {
                 var output = string.Empty;
                 var revokeTokenVo = RevokeTokenVo.ConcreteBuilder
-                    .SetTokenTypeHint(revokeTokenType)
-                    .SetToken(token)
+                    .SetTokenTypeHint(RevokeTokenType.refresh_token)
+                    .SetToken("")
                     .Build();
                 ssoService.RevokeToken(revokeTokenVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine($"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public string GetLoginUrl()
+        {
+            try
+            {
+                var loginUrlVo = LoginUrlVo.ConcreteBuilder
+                    .SetClientId(ClientInfo.ClientId)
+                    .SetResponseType(ResponseType.code)
+                    .SetRedirectUri("")
+                    .SetScope(new []{ScopeType.profile,ScopeType.email})
+                    .Build();
+                var output = loginUrlVo.GetLink();
                 return output;
             }
             catch (PodException podException)
@@ -137,12 +176,6 @@ namespace Demo
                 var handshakeVo = HandshakeVo.ConcreteBuilder
                     .SetAuthorization(apiToken)
                     .SetDeviceUid(deviceUid)
-                    //.SetDeviceLat(0) //{Put your DeviceLat}
-                    //.SetDeviceLon(0) //{Put your DeviceLon}
-                    //.SetDeviceName("") //{Put your DeviceName}
-                    //.SetDeviceOs("") //{Put your DeviceOs}
-                    //.SetDeviceOsVersion("") //{Put your DeviceOsVersion}
-                    //.SetDeviceType(DeviceType.MobilePhone) //{Put your DeviceType}
                     .Build();
                 ssoService.Handshake(handshakeVo, response => Listener.GetResult(response, out output));
                 return output;
@@ -168,16 +201,6 @@ namespace Demo
                     .SetIdentity(identity)
                     .SetAuthorization(keyId, privateKey)
                     .SetResponseType("code")
-                    //.SetCallbackUri("") //{Put your CallbackUri}
-                    //.SetClientId("") //{Put your ClientId}
-                    //.SetCodeChallenge("") //{Put your CodeChallenge}
-                    //.SetCodeChallengeMethod("") //{Put your CodeChallengeMethod}
-                    //.SetIdentityType("") //{Put your IdentityType}
-                    //.SetLoginAsUserId("") //{Put your LoginAsUserId}
-                    //.SetRedirectUri("") //{Put your RedirectUri}
-                    //.SetReferrer("") //{Put your Referrer}
-                    //.SetReferrerType(ReferrerType.phone_number) //{Put your ReferrerType}
-                    //.SetResponseType("") //{Put your ResponseType}
                     .Build();
                 ssoService.Authorize(authorizeVo, response => Listener.GetResult(response, out output));
                 return output;

@@ -1,0 +1,8 @@
+E:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.deps.json
+E:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.dll
+E:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.pdb
+E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.dll
+E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.pdb

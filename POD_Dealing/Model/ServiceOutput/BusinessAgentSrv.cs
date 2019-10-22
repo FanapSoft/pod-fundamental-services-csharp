@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace POD_Dealing.Model.ServiceOutput
 {
     public class BusinessAgentSrv

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 using POD_UserOperation.Base.Enum;
 
 namespace POD_UserOperation.Model.ValueObject
@@ -32,7 +33,7 @@ namespace POD_UserOperation.Model.ValueObject
         public string BirthState { get; }
         public string IdentificationNumber { get; }
         public string FatherName { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public EditProfileWithConfirmationVo(Builder builder)
         {
@@ -58,7 +59,7 @@ namespace POD_UserOperation.Model.ValueObject
             BirthState = builder.GetBirthState();
             IdentificationNumber = builder.GetIdentificationNumber();
             FatherName = builder.GetFatherName();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -103,7 +104,7 @@ namespace POD_UserOperation.Model.ValueObject
             private string fatherName;
 
             [Required]
-            private string token;
+            private InternalServiceCallVo serviceCallParameters;
 
             public string GetFirstName()
             {
@@ -391,17 +392,14 @@ namespace POD_UserOperation.Model.ValueObject
                 this.fatherName = fatherName;
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">AccessToken Or ApiToken         
-            /// توکنی که بعد از ورود به سیستم یا از پنل کسب و کار دریافت شده است
-            /// </param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

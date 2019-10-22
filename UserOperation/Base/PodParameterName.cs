@@ -8,6 +8,8 @@ namespace POD_UserOperation.Base
         {
             {"Token", "_token_"},
             {"TokenIssuer", "_token_issuer_"},
+            {"ScVoucherHash", "scVoucherHash"},
+            {"ScApiKey", "scApiKey"},
             {"ClientId", "client_id"},
             {"ClientSecret", "client_secret"},
             {"FirstName", "firstName"},
@@ -30,6 +32,9 @@ namespace POD_UserOperation.Base
             {"BirthState", "birthState"},
             {"IdentificationNumber", "identificationNumber"},
             {"FatherName", "fatherName"},
+            {"Code", "code"},
+            {"Offset", "offset"},
+            {"Size", "size"}
         };
 
         public static string GetPodName(this string key)

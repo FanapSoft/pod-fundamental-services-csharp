@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using POD_Base_Service.Model.ValueObject;
+using POD_Base_Service.CustomAttribute;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -28,6 +30,7 @@ namespace POD_Billing.Model.ValueObject
         public long[] ProductIdList { get; }
         public int? LastNRows { get; }
         public string CallbackUrl { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public GetInvoiceListAsFileVo(Builder builder)
         {
@@ -49,6 +52,7 @@ namespace POD_Billing.Model.ValueObject
             ProductIdList = builder.GetProductIdList();
             LastNRows = builder.GetLastNRows();
             CallbackUrl = builder.GetCallbackUrl();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -72,8 +76,15 @@ namespace POD_Billing.Model.ValueObject
             private long? userId;
             private string query;
             private long[] productIdList;
+
+            [RequiredIf(nameof(fromDate), nameof(toDate))]
             private int? lastNRows;
-            [Url] private string callbackUrl;
+
+            [Url]
+            private string callbackUrl;
+
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
 
             public long? GetId()
             {
@@ -283,14 +294,20 @@ namespace POD_Billing.Model.ValueObject
                 this.callbackUrl = callbackUrl.Trim();
                 return this;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
 
             public GetInvoiceListAsFileVo Build()
             {
                 var hasErrorFields = this.ValidateByAttribute();
-                if (lastNRows == null && string.IsNullOrEmpty(fromDate) && string.IsNullOrEmpty(toDate))
-                {
-                    hasErrorFields.Add(new KeyValuePair<string, string>("lastNRows,fromDate,toDate", "One of this Builder fields is required."));
-                }
 
                 if (hasErrorFields.Any())
                 {

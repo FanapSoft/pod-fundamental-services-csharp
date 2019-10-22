@@ -1,24 +1,37 @@
 ﻿using POD_Billing.Model.ServiceOutput;
 using System;
 using System.Collections.Generic;
+using POD_Base_Service;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 using POD_Billing;
 using POD_Billing.Model.ValueObject;
 using POD_Billing.Base.Enum;
+using POD_Billing.Model.ServiceOutput.DirectDebit;
+using POD_Billing.Model.ServiceOutput.Voucher;
+using POD_Billing.Model.ValueObject.DirectDebit;
+using POD_Billing.Model.ValueObject.Settlement;
+using POD_Billing.Model.ValueObject.Voucher;
+using POD_Billing.Model.ServiceOutput.Settlement;
+using POD_Billing.Model.ValueObject.Sharing;
+using POD_Base_Service.Result;
 
 namespace Demo
 {
     public class BillingMethodInvoke
     {
-        private readonly BillingService billingService;
-        private readonly string apiToken;
+        private const string GuildCode= "TOILETRIES_GUILD";
+        private  InternalServiceCallVo internalServiceCallVo;
         public BillingMethodInvoke()
         {
             try
             {
-                apiToken = "{Put your Api token}";
-                billingService = new BillingService(apiToken);
+                internalServiceCallVo = InternalServiceCallVo.ConcreteBuilder
+                    .SetToken("")
+                    //.SetScVoucherHash({Put your VoucherHash})
+                    //.SetScApiKey("")
+                    .Build();
             }
             catch (PodException podException)
             {
@@ -37,57 +50,27 @@ namespace Demo
         {
             try
             {
+                //
                 var output = new ResultSrv<InvoiceSrv>();
                 var ottOutput = GetOtt();
                 var invoiceSrv = IssueInvoiceVo.ConcreteBuilder
-                    .SetGuildCode("") //{Put your GuildCode}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
                     .SetProductsInfo(new List<ProductInfo>
                     {
-                         ProductInfo.ConcreteBuilder.SetProductId(0) //{Put your ProductId}
-                         .SetPrice(0.0) //{Put your Price}
-                         .SetQuantity(0) //{Put your Quantity}
-                         .SetProductDescription("") //{Put your ProductDescription}
-                         .Build(),
-                         ProductInfo.ConcreteBuilder
-                         .SetProductId(0) //{Put your ProductId}
-                         .SetPrice(0.0) //{Put your Price}
-                         .SetQuantity(0) //{Put your Quantity}
-                         .SetProductDescription("") //{Put your ProductDescription}
-                         .Build()
+                         ProductInfo.ConcreteBuilder.SetProductId(0).SetPrice(10).SetQuantity(3.5M).SetProductDescription("tst1").Build(),
+                         //ProductInfo.ConcreteBuilder.SetProductId(0).SetPrice(1000).SetQuantity(3.7M).SetProductDescription("tst1").Build()
                     })
                     .SetOtt(ottOutput.Ott)
-                    .SetPreferredTaxRate(0) //{Put your PreferredTaxRate}
-                    .SetPreview(false) //{Put your Preview}
-                    .SetMetadata("") //{Put your Metadata}
-                    .SetUserId(0) //{Put your UserId}
-                    .SetAddressId(0) //{Put your AddressId}
+                    //.SetVerificationNeeded(true)
+                    //.SetPreferredTaxRate(0.5)
+                    //.SetPreview(false)
+                    //.SetMetadata("{\"name\":\"arz\"}")
+                    .SetUserId(1468849)
+                    //.SetAddressId("")
+                    //.SetDeadline("1398/08/09")
                     .Build();
-                billingService.IssueInvoice(invoiceSrv, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<AddressSrv> GetListAddress()
-        {
-            try
-            {
-                var output = new ResultSrv<AddressSrv>();
-                var invoiceSrv = ListAddressVo.ConcreteBuilder
-                    .SetOffset(0) //{Put your Offset}
-                    //.SetSize("") //{Put your Size}
-                    .Build();
-                billingService.GetListAddress(invoiceSrv, response => Listener.GetResult(response, out output));
+                BillingService.IssueInvoice(invoiceSrv, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -108,7 +91,7 @@ namespace Demo
             try
             {
                 var output = new ResultSrv<string>();
-                billingService.GetOtt(response => Listener.GetResult(response, out output));
+                BaseService.GetOtt(internalServiceCallVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -123,17 +106,18 @@ namespace Demo
                 throw;
             }
         }
-
+       
         public ResultSrv<InvoiceSrv> VerifyInvoice()
         {
             try
             {
                 var output = new ResultSrv<InvoiceSrv>();
                 var verifyInvoiceVo = VerifyInvoiceVo.ConcreteBuilder
-                    .SetId(0) //{Put your Id}
-                    //.SetBillNumber("") //{Put your BillNumber}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(6859502)
+                    //.SetBillNumber("")
                     .Build();
-                billingService.VerifyInvoice(verifyInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.VerifyInvoice(verifyInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -155,9 +139,10 @@ namespace Demo
             {
                 var output = new ResultSrv<bool>();
                 var closeInvoiceVo = CloseInvoiceVo.ConcreteBuilder
-                    .SetId(0) //{Put your Id}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(6859393)
                     .Build();
-                billingService.CloseInvoice(closeInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.CloseInvoice(closeInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -179,9 +164,10 @@ namespace Demo
             {
                 var output = new ResultSrv<InvoiceSrv>();
                 var verifyAndCloseInvoiceVo = VerifyAndCloseInvoiceVo.ConcreteBuilder
-                    .SetId(0) //{Put your Id}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(3328298)
                     .Build();
-                billingService.VerifyAndCloseInvoice(verifyAndCloseInvoiceVo,
+                BillingService.VerifyAndCloseInvoice(verifyAndCloseInvoiceVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -204,9 +190,10 @@ namespace Demo
             {
                 var output = new ResultSrv<bool>();
                 var cancelInvoiceVo = CancelInvoiceVo.ConcreteBuilder
-                    .SetId(0) //{Put your Id}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(6859502)
                     .Build();
-                billingService.CancelInvoice(cancelInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.CancelInvoice(cancelInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -228,11 +215,12 @@ namespace Demo
             {
                 var output = new ResultSrv<List<InvoiceSrv>>();
                 var getInvoiceListVo = GetInvoiceListVo.ConcreteBuilder
-                    .SetSize(0) //{Put your Size}
-                    .SetOffset(0) //{Put your Offset}
-                    //.SetGuildCode("") //{Put your GuildCode}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetSize(1)
+                    .SetOffset(0)
+                    //.SetGuildCode("TOILETRIES_GUILD")
                     .Build();
-                billingService.GetInvoiceList(getInvoiceListVo, response => Listener.GetResult(response, out output));
+                BillingService.GetInvoiceList(getInvoiceListVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -254,13 +242,14 @@ namespace Demo
             {
                 var output = new ResultSrv<List<InvoiceSrv>>();
                 var getInvoiceListByMetadataVo = GetInvoiceListByMetadataVo.ConcreteBuilder
-                    .SetMetaQuery("") //{Put your MetaQuery}
-                    .SetSize(0) //{Put your Size}
-                    //.SetOffSet("") //{Put your Offset}
-                    //.SetIsCanceled(false) //{Put your IsCanceled}
-                    //.SetIsPayed(false) //{Put your IsPayed}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetMetaQuery("{\"field\":\"name\",\"is\":\"av\"}")
+                    //.SetSize(0)
+                    //.SetOffSet("")
+                    //.SetIsCanceled(false)
+                    //.SetIsPayed(false)
                     .Build();
-                billingService.GetInvoiceListByMetadata(getInvoiceListByMetadataVo, response => Listener.GetResult(response, out output));
+                BillingService.GetInvoiceListByMetadata(getInvoiceListByMetadataVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -282,6 +271,7 @@ namespace Demo
             {
                 var output = new ResultSrv<InvoiceSrv>();
                 var getInvoiceListAsFileVo = GetInvoiceListAsFileVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetLastNRows(0)
                     //.SetFromDate("")
                     //.SetToDate("")
@@ -300,7 +290,7 @@ namespace Demo
                     //.SetProductIdList(new long[]{})
                     //.SetCallbackUrl("")
                     .Build();
-                billingService.GetInvoiceListAsFile(getInvoiceListAsFileVo,
+                BillingService.GetInvoiceListAsFile(getInvoiceListAsFileVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -323,15 +313,16 @@ namespace Demo
             {
                 var output = new ResultSrv<InvoiceSrv>();
                 var reduceInvoiceVo = ReduceInvoiceVo.ConcreteBuilder
-                    .SetId(3132542)
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(6859679)
                     .SetInvoiceItemsInfo(new List<InvoiceItemInfoVo>
                     {
-                        InvoiceItemInfoVo.ConcreteBuilder.SetInvoiceItemId(3165038).SetItemDescription("te234").SetPrice(1700).SetQuantity(1).Build(),
-                        InvoiceItemInfoVo.ConcreteBuilder.SetInvoiceItemId(3165039).SetItemDescription("tdfr").SetPrice(1700).SetQuantity(1).Build()
+                        InvoiceItemInfoVo.ConcreteBuilder.SetInvoiceItemId(7070162).SetItemDescription("te234").SetPrice(5).SetQuantity(1).Build(),
+                        //InvoiceItemInfoVo.ConcreteBuilder.SetInvoiceItemId(3165039).SetItemDescription("tdfr").SetPrice(1700).SetQuantity(1).Build()
                     })
                     //.SetPreferredTaxRate(0)
                     .Build();
-                billingService.ReduceInvoice(reduceInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.ReduceInvoice(reduceInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -353,38 +344,15 @@ namespace Demo
             {
                 var output = new ResultSrv<List<ExportServiceSrv>>();
                 var getExportListVo = GetExportListVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetOffset(0)
                     .SetSize(1)
                     //.SetId(0)
                     .SetStatusCode(FileStatusCode.EXPORT_SERVICE_STATUS_SUCCESSFUL)
                     //.SetServiceUrl("")
                     .Build();
-                billingService.GetExportList(getExportListVo, response => Listener.GetResult(response, out output));
+                BillingService.GetExportList(getExportListVo, response => Listener.GetResult(response, out output));
                 var link=getExportListVo.GetLink(185264, "16bcaf8a14b-0.6677722751789689");
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<bool> PayInvoice()
-        {
-            try
-            {
-                var output = new ResultSrv<bool>();
-                var payInvoiceVo = PayInvoiceVo.ConcreteBuilder
-                    .SetInvoiceId(3328188)
-                    .Build();
-                billingService.PayInvoice(payInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -406,6 +374,7 @@ namespace Demo
             {
                 var output = new ResultSrv<bool>();
                 var sendInvoicePaymentSmsVo = SendInvoicePaymentSmsVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetInvoiceId(3163071)
                     //.SetWallet("")
                     //.SetCallbackUri("")
@@ -413,7 +382,7 @@ namespace Demo
                     //.SetDelegationId(new long[]{1,2})
                     //.SetForceDelegation(false)
                     .Build();
-                billingService.SendInvoicePaymentSms(sendInvoicePaymentSmsVo,
+                BillingService.SendInvoicePaymentSms(sendInvoicePaymentSmsVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -432,7 +401,30 @@ namespace Demo
                 throw;
             }
         }
-
+        public ResultSrv<bool> PayInvoice()
+        {
+            try
+            {
+                var output = new ResultSrv<bool>();
+                var payInvoiceVo = PayInvoiceVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetInvoiceId(6859393)
+                    .Build();
+                BillingService.PayInvoice(payInvoiceVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
         public ResultSrv<bool> PayInvoiceInFuture()
         {
             try
@@ -440,14 +432,14 @@ namespace Demo
                 var output = new ResultSrv<bool>();
                 var ottOutput = GetOtt();
                 var payInvoiceInFutureVo = PayInvoiceInFutureVo.ConcreteBuilder
-                    .SetInvoiceId(3185918)
-                    .SetDate("1398/06/10")
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetInvoiceId(4289142)
+                    .SetDate("1398/07/05")
                     .SetOtt(ottOutput.Ott)
-                    //.SetGuildCode("TOILETRIES_GUILD")
+                    .SetGuildCode("TOILETRIES_GUILD")
                     //.SetWallet("")
                     .Build();
-                billingService.PayInvoiceInFuture(payInvoiceInFutureVo,
-                    response => Listener.GetResult(response, out output));
+                BillingService.PayInvoice(payInvoiceInFutureVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -462,17 +454,17 @@ namespace Demo
                 throw;
             }
         }
-
         public ResultSrv<bool> PayInvoiceByInvoice()
         {
             try
             {
                 var output = new ResultSrv<bool>();
                 var payInvoiceByInvoiceVo = PayInvoiceByInvoiceVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetCreditorInvoiceId(3164963)
                     .SetDebtorInvoiceId(3164833)
                     .Build();
-                billingService.PayInvoiceByInvoice(payInvoiceByInvoiceVo,
+                BillingService.PayInvoice(payInvoiceByInvoiceVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -488,44 +480,96 @@ namespace Demo
                 throw;
             }
         }
-
+        public ResultSrv<bool> PayInvoiceByCredit()
+        {
+            try
+            {
+                var output = new ResultSrv<bool>();
+                var ottOutput = GetOtt();
+                var payInvoiceByCreditVo = PayInvoiceByCreditVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetOtt(ottOutput.Ott)
+                    .SetInvoiceId(6906020)
+                    //.SetWallet("PODLAND_WALLET")
+                    //.SetForceDelegation(false)
+                    //.SetDelegatorId(new long[]{0})
+                    //.SetDelegationHash(new []{""})
+                    .Build();
+                BillingService.PayInvoice(payInvoiceByCreditVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<bool> PayAnyInvoiceByCredit()
+        {
+            try
+            {
+                var output = new ResultSrv<bool>();
+                var ottOutput = GetOtt();
+                var payInvoiceByInvoiceVo = PayInvoiceByCreditVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetOtt(ottOutput.Ott)
+                    .SetInvoiceId(3163071)
+                    .SetWallet("PODLAND_WALLET")
+                    //.SetForceDelegation(false)
+                    //.SetDelegatorId(new long[]{0})
+                    //.SetDelegationHash(new []{""})
+                    .Build();
+                BillingService.PayAnyInvoice(payInvoiceByInvoiceVo,
+                    response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
         public LinkSrv CreatePreInvoice()
         {
             try
             {
-                var output = new ResultSrv<string>();
+                var output = new ResultSrv<ServiceCallResultSrv<PrivateCallSrv>>();
                 var ottOutput = GetOtt();
                 var createPreInvoiceVo = CreatePreInvoiceVo.ConcreteBuilder
-                    .SetToken(apiToken)
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetApiToken("")
                     .SetOtt(ottOutput.Ott)
                     .SetProductsInfo(new List<ProductInfo>
                     {
-                        ProductInfo.ConcreteBuilder.SetProductId(0) //{Put your ProductId}
-                         .SetPrice(0.0) //{Put your Price}
-                         .SetQuantity(0) //{Put your Quantity}
-                         .SetProductDescription("") //{Put your ProductDescription}
-                         .Build(),
-                         ProductInfo.ConcreteBuilder
-                         .SetProductId(0) //{Put your ProductId}
-                         .SetPrice(0.0) //{Put your Price}
-                         .SetQuantity(0) //{Put your Quantity}
-                         .SetProductDescription("") //{Put your ProductDescription}
-                         .Build()
+                        ProductInfo.ConcreteBuilder.SetProductId(0).SetPrice(1200).SetQuantity(3).SetProductDescription("tst").Build(),
+                        ProductInfo.ConcreteBuilder.SetProductId(0).SetPrice(1400).SetQuantity(3).SetProductDescription("tst1").Build()
                     })
-                    .SetGuildCode("") //{Put your GuildCode}
-                    .SetRedirectUri("") //{Put your RedirectUri}
-                    .SetUserId(0) //{Put your UserId}
-                    //.SetBillNumber("") //{Put your BillNumber}
-                    //.SetCallUrl("") //{Put your callUrl}
-                    //.SetCurrencyCode("") //{Put your CurrencyCode}
-                    //.SetDeadline("") //{Put your Deadline}
-                    //.SetDescription("") //{Put your Description}
-                    //.SetPreferredTaxRate(1) //{Put your PreferredTaxRate}
-                    //.SetRedirectUri("") //{Put your RedirectUri}
-                    //.SetVerificationNeeded(false) //{Put your VerificationNeeded}
+                    .SetGuildCode(GuildCode)
+                    .SetRedirectUri("")
+                    .SetUserId(1468849)
+                    //.SetBillNumber("")
+                    //.SetCallUrl("")
+                    //.SetCurrencyCode("")
+                    //.SetDeadline("")
+                    //.SetDescription("")
+                    //.SetPreferredTaxRate(1)
+                    //.SetRedirectUri("")
+                    //.SetVerificationNeeded(false)
                     .Build();
-                billingService.CreatePreInvoice(createPreInvoiceVo,response => Listener.GetResult(response, out output));
-                var linkSrv = createPreInvoiceVo.GetLink(output.Result);
+                BillingService.CreatePreInvoice(createPreInvoiceVo,response => Listener.GetResult(response, out output));
+                var linkSrv = createPreInvoiceVo.GetLink(output);
 
                 return linkSrv;
             }
@@ -547,9 +591,9 @@ namespace Demo
             try
             {
                 var payInvoiceByWalletVo = PayInvoiceByWalletVo.ConcreteBuilder
-                    .SetInvoiceId(0) //{Put your InvoiceId}
-                    //.SetCallUri("") //{Put your CallUri}
-                    //.SetRedirectUri("") //{Put your RedirectUri}
+                    .SetInvoiceId(6860137)
+                    //.SetCallUri("")
+                    .SetRedirectUri("")
                     .Build();
                 var output = payInvoiceByWalletVo.GetLink();
                 return output;
@@ -573,9 +617,10 @@ namespace Demo
             {
                 var output = new ResultSrv<string>();
                 var getInvoicePaymentLinkVo = GetInvoicePaymentLinkVo.ConcreteBuilder
-                    .SetInvoiceId(0) //{Put your InvoiceId}
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetInvoiceId(6859734)
                     .Build();
-                billingService.GetInvoicePaymentLink(getInvoicePaymentLinkVo,response => Listener.GetResult(response, out output));
+                BillingService.GetInvoicePaymentLink(getInvoicePaymentLinkVo,response => Listener.GetResult(response, out output));
                 var advanceLink = getInvoicePaymentLinkVo.GetAdvanceLink(output.Result, "PEP");
 
                 return output;
@@ -598,10 +643,10 @@ namespace Demo
             try
             {
                 var payInvoiceByUniqueNumberVo = PayInvoiceByUniqueNumberVo.ConcreteBuilder
-                    .SetUniqueNumber("") //{Put your UniqueNumber}
-                    //.SetGateway("") //{Put your Gateway}
-                    //.SetRedirectUri("") //{Put your RedirectUri}
-                    //.SetCallUri("") //{Put your CallUri}
+                    .SetUniqueNumber("")
+                    .SetGateway("PEP")
+                    .SetRedirectUri("")
+                    //.SetCallUri("")
                     .Build();
                 var output = payInvoiceByUniqueNumberVo.GetLink();
                 return output;
@@ -627,17 +672,18 @@ namespace Demo
                 var ottOutput = GetOtt();
                 var output = new ResultSrv<SettlementRequestSrv>();
                 var requestWalletSettlementVo = RequestWalletSettlementVo.ConcreteBuilder
-                    .SetAmount(0)
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetAmount(10)
                     .SetOtt(ottOutput.Ott)
                     //.SetWallet("")
                     //.SetFirstName("")
                     //.SetLastName("")
                     //.SetSheba("")
-                    //.SetCurrencyCode("")
+                    //.SetCurrencyCode("IRR")
                     //.SetUniqueId("")
                     //.SetDescription("")
                     .Build();
-                billingService.RequestSettlement(requestWalletSettlementVo, response => Listener.GetResult(response, out output));
+                BillingService.RequestSettlement(requestWalletSettlementVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -660,8 +706,9 @@ namespace Demo
                 var ottOutput = GetOtt();
                 var output = new ResultSrv<SettlementRequestSrv>();
                 var requestGuildSettlementVo = RequestGuildSettlementVo.ConcreteBuilder
-                    .SetGuildCode("")
-                    .SetAmount(0)
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode("TOILETRIES_GUILD")
+                    .SetAmount(100)
                     .SetOtt(ottOutput.Ott)
                     //.SetFirstName("")
                     //.SetLastName("")
@@ -670,7 +717,7 @@ namespace Demo
                     //.SetUniqueId("")
                     //.SetDescription("")
                     .Build();
-                billingService.RequestSettlement(requestGuildSettlementVo,
+                BillingService.RequestSettlement(requestGuildSettlementVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -694,10 +741,11 @@ namespace Demo
                 var ottOutput = GetOtt();
                 var output = new ResultSrv<SettlementRequestSrv>();
                 var requestSettlementByToolVo = RequestSettlementByToolVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetToolCode(ToolCode.SETTLEMENT_TOOL_CARD)
                     .SetToolId("")
                     .SetAmount(0)
-                    .SetGuildCode("")
+                    .SetGuildCode("TOILETRIES_GUILD")
                     .SetOtt(ottOutput.Ott)
                     //.SetFirstName("")
                     //.SetLastName("")
@@ -705,7 +753,7 @@ namespace Demo
                     //.SetUniqueId("")
                     //.SetDescription("")
                     .Build();
-                billingService.RequestSettlement(requestSettlementByToolVo,
+                BillingService.RequestSettlement(requestSettlementByToolVo,
                     response => Listener.GetResult(response, out output));
                 return output;
             }
@@ -728,8 +776,9 @@ namespace Demo
             {
                 var output = new ResultSrv<List<SettlementRequestSrv>>();
                 var listSettlementsVo = ListSettlementsVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetOffset(0)
-                    .SetSize(0)
+                    .SetSize(10)
                     //.SetStatusCode(SettlementStatusCode.SETTLEMENT_DONE)
                     //.SetFromAmount(0)
                     //.SetToAmount(0)
@@ -737,8 +786,13 @@ namespace Demo
                     //.SetToDate(DateTime.Now)
                     //.SetUniqueId("")
                     //.SetCurrencyCode("")
+                    //.SetId(0)
+                    //.SetFirstName("")
+                    //.SetLastName("")
+                    //.SetToolCode(ToolCode.SETTLEMENT_TOOL_SATNA)
+                    //.SetToolId("")
                     .Build();
-                billingService.ListSettlements(listSettlementsVo, response => Listener.GetResult(response, out output));
+                BillingService.ListSettlements(listSettlementsVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -758,18 +812,17 @@ namespace Demo
         {
             try
             {
-                var ottOutput = GetOtt();
                 var output = new ResultSrv<bool>();
                 var addAutoSettlementVo = AddAutoSettlementVo.ConcreteBuilder
-                    .SetGuildCode("")
-                    .SetOtt(ottOutput.Ott)
-                    //.SetFirstName("")
-                    //.SetLastName("")
-                    //.SetSheba("")
-                    //.SetCurrencyCode("")
-                    //.SetInstant(false)
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
+                    //.SetFirstName("{Put your FirstName}")
+                    //.SetLastName("{Put your LastName}")
+                    //.SetSheba("{Put your Sheba}")
+                    //.SetCurrencyCode("{Put your CurrencyCode}")
+                    //.SetInstant({Put your Instant})
                     .Build();
-                billingService.AddAutoSettlement(addAutoSettlementVo, response => Listener.GetResult(response, out output));
+                BillingService.AddAutoSettlement(addAutoSettlementVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -791,10 +844,11 @@ namespace Demo
             {
                 var output = new ResultSrv<bool>();
                 var registerUserVo = RemoveAutoSettlementVo.ConcreteBuilder
-                    .SetGuildCode("")
-                    //.SetCurrencyCode("")
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
+                    //.SetCurrencyCode("{Put your CurrencyCode}")
                     .Build();
-                billingService.RemoveAutoSettlement(registerUserVo, response => Listener.GetResult(response, out output));
+                BillingService.RemoveAutoSettlement(registerUserVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -812,134 +866,6 @@ namespace Demo
 
         #region Sharing
 
-        public ResultSrv<BusinessDealerSrv> AddDealer()
-        {
-            try
-            {
-                var output = new ResultSrv<BusinessDealerSrv>();
-                var addDealerVo = AddDealerVo.ConcreteBuilder
-                    .SetDealerBizId(0)
-                    //.SetAllProductAllow(false)
-                    .Build();
-                billingService.AddDealer(addDealerVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<List<BusinessDealerSrv>> DealerList()
-        {
-            try
-            {
-                var output = new ResultSrv<List<BusinessDealerSrv>>();
-                var dealerListVo = DealerListVo.ConcreteBuilder
-                    //.SetDealerBizId(0)
-                    //.SetEnable(false)
-                    //.SetOffset(0)
-                    //.SetSize(0)
-                    .Build();
-                billingService.DealerList(dealerListVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<BusinessDealerSrv> EnableDealer()
-        {
-            try
-            {
-                var output = new ResultSrv<BusinessDealerSrv>();
-                var enableDealerVo = EnableDealerVo.ConcreteBuilder
-                    .SetDealerBizId(0)
-                    .Build();
-                billingService.EnableDealer(enableDealerVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<BusinessDealerSrv> DisableDealer()
-        {
-            try
-            {
-                var output = new ResultSrv<BusinessDealerSrv>();
-                var disableDealerVo = DisableDealerVo.ConcreteBuilder
-                    .SetDealerBizId(0)
-                    .Build();
-                billingService.DisableDealer(disableDealerVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<List<BusinessDealerSrv>> BusinessDealingList()
-        {
-            try
-            {
-                var output = new ResultSrv<List<BusinessDealerSrv>>();
-                var businessDealingListVo = BusinessDealingListVo.ConcreteBuilder
-                    .SetDealerBizId(0)
-                    //.SetEnable(false)
-                    //.SetOffset(0)
-                    //.SetSize(0)
-                    .Build();
-                billingService.BusinessDealingList(businessDealingListVo,
-                    response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
         public ResultSrv<InvoiceSrv> IssueMultiInvoice()
         {
             try
@@ -947,42 +873,34 @@ namespace Demo
                 var output = new ResultSrv<InvoiceSrv>();
                 var ottOutput = GetOtt();
                 var mainInvoiceVos = MainInvoiceVo.ConcreteBuilder
-                    .SetGuildCode("")
+                    .SetGuildCode("TOILETRIES_GUILD")
                     .SetInvoiceItemVOs(new List<InvoiceItemVo>
                     {
                         InvoiceItemVo.ConcreteBuilder.SetProductId(0).SetDescription("tst5").SetPrice(100).SetQuantity(2).Build()
                     })
                     //.SetBillNumber("")
-                    .SetDescription("")
+                    .SetDescription("main")
                     //.SetMetadata("")
                     .Build();
                   
                 var subInvoiceVos = new List<SubInvoiceVo>
                 {
                     SubInvoiceVo.ConcreteBuilder
-                        .SetBusinessId(0)
-                        .SetGuildCode("")
+                        .SetBusinessId(3612)
+                        .SetGuildCode("TOILETRIES_GUILD")
                         .SetInvoiceItemVOs(new List<InvoiceItemVo>
                         {
-                            InvoiceItemVo.ConcreteBuilder.SetProductId(0)
-                            .SetDescription("")
-                            .SetPrice(0.0)
-                            .SetQuantity(0)
-                            .Build()
+                            InvoiceItemVo.ConcreteBuilder.SetProductId(0).SetDescription("tst5").SetPrice(100).SetQuantity(2).Build()
                         })
                         //.SetBillNumber("")
-                        .SetDescription("")
+                        .SetDescription("sub")
                         //.SetMetadata("")
                         .Build()
                    
                 };
                 var customerInvoiceItems = new List<InvoiceItemVo>
                 {
-                    InvoiceItemVo.ConcreteBuilder.SetProductId(0)
-                    .SetDescription("")
-                    .SetPrice(0.0)
-                    .SetQuantity(0)
-                    .Build()
+                    InvoiceItemVo.ConcreteBuilder.SetProductId(0).SetDescription("tst1").SetPrice(200).SetQuantity(2).Build()
                 };
                 var multiInvoiceData = MultiInvoiceDataVo.ConcreteBuilder
                     .SetMainInvoice(mainInvoiceVos)
@@ -994,19 +912,20 @@ namespace Demo
                     //.SetCustomerMetadata("")
                     //.SetPreferredTaxRate(0)
                     //.SetRedirectUrl("")
-                    //.SetUserId(0)
+                    .SetUserId(1468849)
                     //.SetVerificationNeeded(false)
                     //.SetVoucherHashs(new string[] { })
                     .Build();
 
                 var issueMultiInvoiceVo = IssueMultiInvoiceVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetOtt(ottOutput.Ott)
                     .SetData(multiInvoiceData)
-                    //.SetDelegationHash(new string[]{})
-                    //.SetDelegatorId(new long[]{})
+                    .SetDelegationHash(new string[]{"cc"})
+                    .SetDelegatorId(new long[]{1234})
                     //.SetForceDelegation(false)
                     .Build();
-                billingService.IssueMultiInvoice(issueMultiInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.IssueMultiInvoice(issueMultiInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -1027,41 +946,29 @@ namespace Demo
             {
                 var output = new ResultSrv<InvoiceSrv>();
                 var mainInvoiceVos = ReduceInvoiceItemVo.ConcreteBuilder
-                    .SetId(0)
+                    .SetId(6878196)
                     .SetReduceInvoiceItemVOs(new List<ReduceInvoiceSubItemVo>
                     {
-                        ReduceInvoiceSubItemVo.ConcreteBuilder
-                        .SetId(0)
-                        .SetDescription("")
-                        .SetPrice(0.0)
-                        .SetQuantity(0)
-                        .Build()
+                        ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(3583750).SetDescription("tst15").SetPrice(5)
+                            .SetQuantity(1).Build()
                     })
                     .Build();
 
                 var subInvoiceVos = new List<ReduceInvoiceItemVo>
                 {
                     ReduceInvoiceItemVo.ConcreteBuilder
-                        .SetId(0)
+                        .SetId(6878197)
                         .SetReduceInvoiceItemVOs(new List<ReduceInvoiceSubItemVo>
                         {
-                            ReduceInvoiceSubItemVo.ConcreteBuilder
-                            .SetId(0)
-                            .SetDescription("")
-                            .SetPrice(0.0)
-                            .SetQuantity(0)
-                            .Build()
+                            ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(3583751).SetDescription("tst15").SetPrice(5)
+                                .SetQuantity(1).Build()
                         })
                         .Build()
                 };
                 var customerInvoiceItems = new List<ReduceInvoiceSubItemVo>
                 {
-                    ReduceInvoiceSubItemVo.ConcreteBuilder
-                    .SetId(0)
-                    .SetDescription("")
-                    .SetPrice(0.0)
-                    .SetQuantity(0)
-                    .Build()
+                    ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(6878195).SetDescription("tst155").SetPrice(10).SetQuantity(1)
+                        .Build()
                 };
 
                 var reduceMultiInvoiceDataVo = ReduceMultiInvoiceDataVo.ConcreteBuilder
@@ -1072,9 +979,10 @@ namespace Demo
                     .Build();
 
                 var reduceMultiInvoiceVo = ReduceMultiInvoiceVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetData(reduceMultiInvoiceDataVo)
                     .Build();
-                billingService.ReduceMultiInvoice(reduceMultiInvoiceVo, response => Listener.GetResult(response, out output));
+                BillingService.ReduceMultiInvoice(reduceMultiInvoiceVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -1097,40 +1005,29 @@ namespace Demo
                 var output = new ResultSrv<InvoiceSrv>();
 
                 var mainInvoiceVos = ReduceInvoiceItemVo.ConcreteBuilder
-                    .SetId(0)
+                    .SetId(3549989)
                     .SetReduceInvoiceItemVOs(new List<ReduceInvoiceSubItemVo>
                     {
-                        ReduceInvoiceSubItemVo.ConcreteBuilder
-                        .SetId(0)
-                        .SetDescription("")
-                        .SetPrice(0.0)
-                        .SetQuantity(0)
-                        .Build()
+                        ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(3588066).SetDescription("tst15").SetPrice(50)
+                            .SetQuantity(2).Build()
                     })
                     .Build();
 
                 var subInvoiceVos = new List<ReduceInvoiceItemVo>
                 {
                     ReduceInvoiceItemVo.ConcreteBuilder
-                        .SetId(0)
+                        .SetId(3549990)
                         .SetReduceInvoiceItemVOs(new List<ReduceInvoiceSubItemVo>
                         {
-                            ReduceInvoiceSubItemVo.ConcreteBuilder
-                            .SetId(0)
-                            .SetDescription("")
-                            .SetPrice(0.0)
-                            .SetQuantity(0)
-                            .Build()
+                            ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(3588067).SetDescription("tst15").SetPrice(50)
+                                .SetQuantity(2).Build()
                         })
                         .Build()
                 };
                 var customerInvoiceItems = new List<ReduceInvoiceSubItemVo>
                 {
-                    ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(3588065)
-                    .SetDescription("")
-                    .SetPrice(0.0)
-                    .SetQuantity(0)
-                    .Build()
+                    ReduceInvoiceSubItemVo.ConcreteBuilder.SetId(6877893).SetDescription("tst155").SetPrice(100).SetQuantity(2)
+                        .Build()
                 };
 
                 var reduceMultiInvoiceDataVo = ReduceMultiInvoiceDataVo.ConcreteBuilder
@@ -1141,141 +1038,11 @@ namespace Demo
                     .Build();
 
                 var reduceMultiInvoiceAndCashoutVo = ReduceMultiInvoiceAndCashoutVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
                     .SetData(reduceMultiInvoiceDataVo)
                     .SetToolCode(ToolCode.SETTLEMENT_TOOL_CARD)
                     .Build();
-                billingService.ReduceMultiInvoiceAndCashout(reduceMultiInvoiceAndCashoutVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<DealerProductPermissionSrv> AddDealerProductPermission()
-        {
-            try
-            {
-                var output = new ResultSrv<DealerProductPermissionSrv>();
-                var registerUserVo = AddDealerProductPermissionVo.ConcreteBuilder
-                    .SetEntityId(0)
-                    .SetDealerBizId(0)
-                    .Build();
-                billingService.AddDealerProductPermission(registerUserVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine($"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<List<DealerProductPermissionSrv>> DealerProductPermissionList()
-        {
-            try
-            {
-                var output = new ResultSrv<List<DealerProductPermissionSrv>>();
-                var registerUserVo = DealerProductPermissionListVo.ConcreteBuilder
-                                    //.SetSize(0)
-                                    //.SetDealingBusinessId(0)
-                                    //.SetEnable(false)
-                                    //.SetOffset(0)
-                                    //.SetEntityId(0)
-                    .Build();
-                billingService.DealerProductPermissionList(registerUserVo, response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<List<DealerProductPermissionSrv>> DealingProductPermissionList()
-        {
-            try
-            {
-                var output = new ResultSrv<List<DealerProductPermissionSrv>>();
-                var registerUserVo = DealingProductPermissionListVo.ConcreteBuilder
-                    //.SetSize(0)
-                    //.SetDealingBusinessId(0)
-                    //.SetEnable(false)
-                    //.SetOffset(0)
-                    //.SetEntityId(0)
-                    .Build();
-                billingService.DealingProductPermissionList(registerUserVo,response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<DealerProductPermissionSrv> DisableDealerProductPermission()
-        {
-            try
-            {
-                var output = new ResultSrv<DealerProductPermissionSrv>();
-                var registerUserVo = DisableDealerProductPermissionVo.ConcreteBuilder
-                    .SetEntityId(0)
-                    .SetDealerBizId(0)
-                    .Build();
-                billingService.DisableDealerProductPermission(registerUserVo,
-                    response => Listener.GetResult(response, out output));
-                return output;
-            }
-            catch (PodException podException)
-            {
-                Console.WriteLine(
-                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
-                throw;
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                throw;
-            }
-        }
-
-        public ResultSrv<DealerProductPermissionSrv> EnableDealerProductPermission()
-        {
-            try
-            {
-                var output = new ResultSrv<DealerProductPermissionSrv>();
-                var enableDealerProductPermissionVo = EnableDealerProductPermissionVo.ConcreteBuilder
-                    .SetEntityId(0)
-                    .SetDealerBizId(0)
-                    .Build();
-                billingService.EnableDealerProductPermission(enableDealerProductPermissionVo,response => Listener.GetResult(response, out output));
+                BillingService.ReduceMultiInvoiceAndCashout(reduceMultiInvoiceAndCashoutVo, response => Listener.GetResult(response, out output));
                 return output;
             }
             catch (PodException podException)
@@ -1292,5 +1059,345 @@ namespace Demo
         }
 
         #endregion Sharing
+
+        #region Voucher
+
+        public ResultSrv<List<VoucherSrv>> DefineCreditVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<List<VoucherSrv>>();
+                var defineCreditVoucherVo = DefineCreditVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
+                    .SetExpireDate("1398/08/01")
+                    .SetVouchersContent(new List<VoucherContentVo>
+                    {
+                       VoucherContentVo.ConcreteBuilder.SetName("BonTst1").SetAmount(0).SetCount(1).SetDescription("tst").SetHashCodes(new []{"yuotytteve"}).Build(),
+                       VoucherContentVo.ConcreteBuilder.SetName("BonTst2").SetAmount(0).SetCount(2).SetDescription("tst").SetHashCodes(new []{"retywttqeve","btyttnmeve"}).Build()
+                    })
+                    //.SetLimitedConsumerId(3)
+                    //.SetCurrencyCode("IRR")
+                    .Build();
+                BillingService.DefineVoucher(defineCreditVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<List<VoucherSrv>> DefineDiscountAmountVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<List<VoucherSrv>>();
+                var defineDiscountAmountVoucherVo = DefineDiscountAmountVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
+                    .SetExpireDate("1398/08/01")
+                    .SetVouchersContent(new List<VoucherContentVo>
+                    {
+                        VoucherContentVo.ConcreteBuilder.SetName("BonTst11").SetAmount(1.1M).SetCount(1).SetDescription("tst").SetHashCodes(new []{"etyrktttef"}).Build(),
+                        VoucherContentVo.ConcreteBuilder.SetName("BonTst21").SetAmount(1.1m).SetCount(2).SetDescription("tst").SetHashCodes(new []{"ertyt5ttkef","ertyttkt6ef"}).Build()
+                    })
+                    //.SetLimitedConsumerId(0)
+                    .SetCurrencyCode("IRR")
+                    .SetEntityId(new long[]{ 29468 , 29466 })
+                    .SetDealerBusinessId(new long[]{3605})
+                    .Build();
+                BillingService.DefineVoucher(defineDiscountAmountVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<List<VoucherSrv>> DefineDiscountPercentageVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<List<VoucherSrv>>();
+                var defineDiscountPercentageVoucherVo = DefineDiscountPercentageVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetGuildCode(GuildCode)
+                    .SetExpireDate("1398/08/01")
+                    .SetVouchersContent(new List<DiscountVoucherContentVo>
+                    {
+                        DiscountVoucherContentVo.ConcreteBuilder.SetName("BonTest").SetAmount(0).SetCount(1).SetDescription("tst").SetHashCodes(new []{"bvf6ttktye"}).SetDiscountPercentage(10).Build(),
+                        DiscountVoucherContentVo.ConcreteBuilder.SetName("BonTst2").SetAmount(0).SetCount(2).SetDescription("tst").SetHashCodes(new []{"rewqekttyvt6e","bnyttmtekv8e"}).SetDiscountPercentage(20).Build()
+                    })
+                    .SetType(VoucherType.UnLimited)
+                    //.SetLimitedConsumerId(0)
+                    //.SetCurrencyCode("")
+                    //.SetEntityId(new long[] { 0 })
+                    //.SetDealerBusinessId(new long[] { 0 })
+                    .Build();
+                BillingService.DefineVoucher(defineDiscountPercentageVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<InvoiceSrv> ApplyVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<InvoiceSrv>();
+                var applyVoucherVo = ApplyVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetInvoiceId(6485293)
+                    .SetVoucherHash(new []{ "" })
+                    .SetOtt("6ffd18730f2ea512")
+                    //.SetPreview(false)
+                    .Build();
+                BillingService.ApplyVoucher(applyVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<List<VoucherSrv>> GetVoucherList()
+        {
+            try
+            {
+                var output = new ResultSrv<List<VoucherSrv>>();
+                var getVoucherListVo = GetVoucherListVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetOffset(0)
+                    .SetSize(10)
+                    //.SetConsumerId(0)
+                    //.SetHashCode("ILNG26MII549")
+                    //.SetVoucherName("")
+                    //.SetType(VoucherType.UnLimited)
+                    //.SetGuildCodes(new []{ "ENGINEERING_GUILD" })
+                    //.SetCurrencyCode("")
+                    //.SetAmountFrom(0)
+                    //.SetAmountTo(0)
+                    //.SetDiscountPercentageFrom(0)
+                    //.SetDiscountPercentageTo(0)
+                    //.SetExpireDateFrom("")
+                    //.SetExpireDateTo("")
+                    //.SetEntityId(new long[]{0})
+                    //.SetConsumeDateFrom("")
+                    //.SetConsumeDateTo("")
+                    //.SetUsedAmountFrom(0)
+                    //.SetUsedAmountTo(0)
+                    //.SetActive(false)
+                    //.SetUsed(false)
+                    .Build();
+                BillingService.GetVoucherList(getVoucherListVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<VoucherSrv> ActivateVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<VoucherSrv>();
+                var activateVoucherVo = DeactivateVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetVoucherId(261717)
+                    .Build();
+                BillingService.ActivateVoucher(activateVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<VoucherSrv> DeactivateVoucher()
+        {
+            try
+            {
+                var output = new ResultSrv<VoucherSrv>();
+                var deactivateVoucherVo = DeactivateVoucherVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                   .SetVoucherId(261717)
+                    .Build();
+                BillingService.DeactivateVoucher(deactivateVoucherVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+
+        #endregion Voucher
+
+        #region DirectDebit
+
+        public ResultSrv<DirectWithdrawSrv> DefineDirectWithdraw()
+        {
+            try
+            {
+                var output = new ResultSrv<DirectWithdrawSrv>();
+                var defineDirectWithdrawVo = DefineDirectWithdrawVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetDepositNumber("")
+                    .SetMinAmount(10)
+                    .SetMaxAmount(5)
+                    .SetOnDemand(false)
+                    .SetPrivateKeyFromFile(@"")
+                    .SetUsername("fdd")
+                    .SetWallet("PODLAND_WALLET")
+                    .Build();
+                BillingService.DefineDirectWithdraw(defineDirectWithdrawVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<List<DirectWithdrawSrv>> GetDirectWithdrawList()
+        {
+            try
+            {
+                var output = new ResultSrv<List<DirectWithdrawSrv>>();
+                var directWithdrawListVo =DirectWithdrawListVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetWallet("PODLAND_WALLET")
+                    .SetOffset(0)
+                    .SetSize(10)
+                    .Build();
+                BillingService.GetDirectWithdrawList(directWithdrawListVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine($"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<DirectWithdrawSrv> UpdateDirectWithdraw()
+        {
+            try
+            {
+                var output = new ResultSrv<DirectWithdrawSrv>();
+                var updateDirectWithdrawVo = UpdateDirectWithdrawVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(143)
+                    .SetDepositNumber("")
+                    .SetMinAmount(10)
+                    .SetMaxAmount(5)
+                    .SetOnDemand(false)
+                    .SetPrivateKeyFromFile(@"")
+                    .SetUsername("vgf")
+                    .SetWallet("PODLAND_WALLET")
+                    .Build();
+                BillingService.UpdateDirectWithdraw(updateDirectWithdrawVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+        public ResultSrv<bool> RevokeDirectWithdraw()
+        {
+            try
+            {
+                var output = new ResultSrv<bool>();
+                var revokeDirectWithdrawVo = RevokeDirectWithdrawVo.ConcreteBuilder
+                    .SetServiceCallParameters(internalServiceCallVo)
+                    .SetId(143)
+                    .Build();
+                BillingService.RevokeDirectWithdraw(revokeDirectWithdrawVo, response => Listener.GetResult(response, out output));
+                return output;
+            }
+            catch (PodException podException)
+            {
+                Console.WriteLine(
+                    $"-- {podException.Code}-an error has occured : {Environment.NewLine}{podException.Message}");
+                throw;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+        }
+
+        #endregion DirectDebit
     }
 }

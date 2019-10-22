@@ -73,6 +73,10 @@ namespace POD_Base_Service.Base
             return hasErrorFields;
         }
 
+        public static List<PropertyInfo> GetParentProperty<T>(this T obj)
+        {
+            return obj.GetType().BaseType?.GetProperties().ToList();
+        }
         public static List<MemberInfo> GetFieldsAndProperties<T>(BindingFlags bindingAttr)
         {
             return GetFieldsAndProperties(typeof(T), bindingAttr);
@@ -112,17 +116,13 @@ namespace POD_Base_Service.Base
                         var objects = valueList.Cast<object>().ToList();
                         foreach (var ob in objects)
                         {
-                            var props = ob.GetType().GetProperties(bindingFlags);
-                            if (props.Any())
-                            {
-                                foreach (var prop in props)
-                                {
-                                    podParameterName.TryGetValue(prop.Name, out var podName);
-                                    notNullProperties.Add(new KeyValuePair<string, string>(podName, prop.GetValue(ob).ToString(CultureInfo.InvariantCulture)));
-                                }
-                            }
+                           notNullProperties.AddRange(ob.FilterNotNull(podParameterName));
                         }
                     }
+                }
+                else if (pr.PropertyType.IsClass && pr.PropertyType.Assembly.FullName.StartsWith("POD_"))
+                {
+                    notNullProperties.AddRange(val.FilterNotNull(podParameterName));
                 }
                 else
                 {
@@ -134,9 +134,71 @@ namespace POD_Base_Service.Base
             return notNullProperties;
         }
 
+        public static string ToJson(this List<KeyValuePair<string, string>> keyValuePairs)
+        {
+            var entries = keyValuePairs.Select(d => $"\"{d.Key}\": {string.Join(",", $"\"{d.Value}\"")}");
+            return "{" + string.Join(",", entries) + "}";
+        }
+
         public static string ToString(this object value,CultureInfo cultureInfo)
         {
             return string.Format(cultureInfo, "{0}", value);
+        }
+
+        public static Dictionary<string, object> ToDictionaryHierachy(this object classObj, Dictionary<string, string> podParameterName)
+        {
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+            var properties = classObj.GetType().GetProperties(bindingFlags);
+            var propDic = new Dictionary<string, object>();
+            foreach (var property in properties)
+            {
+                var propValue = property.GetValue(classObj);
+                if(propValue==null) continue;
+                if (property.PropertyType.IsClass && property.PropertyType.Assembly.FullName.StartsWith("POD_"))
+                {
+                    var valueProperties = propValue.GetType().GetProperties(bindingFlags);
+                    var propDic1 = new Dictionary<string, object>();
+                    foreach (var valueProperty in valueProperties)
+                    {
+                        var value = valueProperty.GetValue(propValue);
+                        if (value == null) continue;
+                        podParameterName.TryGetValue(valueProperty.Name, out var valPodName);
+                        propDic1.Add(valPodName, value);
+                    }
+                    podParameterName.TryGetValue(property.Name, out var podName);
+                    propDic.Add(podName, propDic1);
+                }
+                else
+                {
+                    podParameterName.TryGetValue(property.Name, out var podName);
+                    propDic.Add(podName, propValue);
+                }
+            }
+
+            return propDic;
+        }
+
+        public static Dictionary<string, object> ToDictionary(this object classObj, Dictionary<string, string> podParameterName)
+        {
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+            var properties = classObj.GetType().GetProperties(bindingFlags);
+            var propDic = new Dictionary<string, object>();
+            foreach (var property in properties)
+            {
+                var propValue = property.GetValue(classObj);
+                if (propValue == null) continue;
+                if (property.PropertyType.IsClass && property.PropertyType.Assembly.FullName.StartsWith("POD_"))
+                {
+                    propDic.Concat(propValue.ToDictionary(podParameterName));
+                }
+                else
+                {
+                    podParameterName.TryGetValue(property.Name, out var podName);
+                    propDic.Add(podName, propValue);
+                }
+            }
+
+            return propDic;
         }
 
         public static bool JArrayTryParse(this string value, out JArray jArray)
@@ -163,14 +225,13 @@ namespace POD_Base_Service.Base
         public static string ToShamsiDateTime(this DateTime dateTime)
         {
             var pc = new PersianCalendar();
-            var shamsiDate =
-                $"{pc.GetYear(dateTime)}/{pc.GetMonth(dateTime)}/{pc.GetDayOfMonth(dateTime)} {pc.GetHour(dateTime)}:{pc.GetMinute(dateTime)}:{pc.GetSecond(dateTime)}";
+            var shamsiDate = $"{pc.GetYear(dateTime)}/{pc.GetMonth(dateTime)}/{pc.GetDayOfMonth(dateTime)} {pc.GetHour(dateTime)}:{pc.GetMinute(dateTime)}:{pc.GetSecond(dateTime)}";
             return shamsiDate;
         }
 
         public static string GetSignature(this string dataToSign, HashAlgorithmName hashAlgorithmName, string pemFilePath)
         {
-            var rsaCsp = LoadCertificateFile(pemFilePath);
+            var rsaCsp = LoadRsaFile(pemFilePath);
             var dataBytes = Encoding.UTF8.GetBytes(dataToSign);
             var signatureBytes = rsaCsp.SignData(dataBytes, hashAlgorithmName, RSASignaturePadding.Pkcs1);
             var signatureBase64 = Convert.ToBase64String(signatureBytes);
@@ -180,7 +241,7 @@ namespace POD_Base_Service.Base
         public static string GetSignature(this string dataToSign, string privateKey, HashAlgorithmName hashAlgorithmName)
         {
             var res = GetPem("RSA PRIVATE KEY", Encoding.ASCII.GetBytes(privateKey));
-            var rsaCsp = DecodeRSAPrivateKey(res);
+            var rsaCsp = DecodeRsaPrivateKey(res);
             var signatureBytes = rsaCsp.SignData(Encoding.UTF8.GetBytes(dataToSign), hashAlgorithmName,
                 RSASignaturePadding.Pkcs1);
             var signatureBase64 = Convert.ToBase64String(signatureBytes);
@@ -198,9 +259,9 @@ namespace POD_Base_Service.Base
             return Convert.FromBase64String(base64);
         }
 
-        private static RSACryptoServiceProvider LoadCertificateFile(string filename)
+        public static RSACryptoServiceProvider LoadRsaFile(string path)
         {
-            using (var fs = File.OpenRead(filename))
+            using (var fs = File.OpenRead(path))
             {
                 var data = new byte[fs.Length];
                 byte[] res = null;
@@ -212,18 +273,32 @@ namespace POD_Base_Service.Base
 
                 try
                 {
-                    var rsa = DecodeRSAPrivateKey(res);
+                    var rsa = DecodeRsaPrivateKey(res);
                     return rsa;
                 }
-                catch (System.Exception ex)
+                catch (System.Exception)
                 {
+                    // ignored
                 }
 
                 return null;
             }
         }
+        public static string ToXml(this RSA rsa, bool includePrivateParameters)
+        {
+            var parameters = rsa.ExportParameters(includePrivateParameters);
 
-        private static RSACryptoServiceProvider DecodeRSAPrivateKey(byte[] privatekey)
+            return string.Format("<RSAKeyValue><Modulus>{0}</Modulus><Exponent>{1}</Exponent><P>{2}</P><Q>{3}</Q><DP>{4}</DP><DQ>{5}</DQ><InverseQ>{6}</InverseQ><D>{7}</D></RSAKeyValue>",
+                parameters.Modulus != null ? Convert.ToBase64String(parameters.Modulus) : null,
+                parameters.Exponent != null ? Convert.ToBase64String(parameters.Exponent) : null,
+                parameters.P != null ? Convert.ToBase64String(parameters.P) : null,
+                parameters.Q != null ? Convert.ToBase64String(parameters.Q) : null,
+                parameters.DP != null ? Convert.ToBase64String(parameters.DP) : null,
+                parameters.DQ != null ? Convert.ToBase64String(parameters.DQ) : null,
+                parameters.InverseQ != null ? Convert.ToBase64String(parameters.InverseQ) : null,
+                parameters.D != null ? Convert.ToBase64String(parameters.D) : null);
+        }
+        private static RSACryptoServiceProvider DecodeRsaPrivateKey(byte[] privatekey)
         {
             // --------- Set up stream to decode the asn.1 encoded RSA private key ------
             var mem = new MemoryStream(privatekey);
@@ -231,8 +306,7 @@ namespace POD_Base_Service.Base
             try
             {
                 var twobytes = binr.ReadUInt16();
-                if (twobytes == 0x8130
-                ) //dataToSign read as little endian order (actual dataToSign order for Sequence is 30 81)
+                if (twobytes == 0x8130) //dataToSign read as little endian order (actual dataToSign order for Sequence is 30 81)
                     binr.ReadByte(); //advance 1 byte
                 else if (twobytes == 0x8230)
                     binr.ReadInt16(); //advance 2 bytes
@@ -301,7 +375,7 @@ namespace POD_Base_Service.Base
 
         private static int GetIntegerSize(BinaryReader binaryReader)
         {
-            byte bt = binaryReader.ReadByte();
+            var bt = binaryReader.ReadByte();
             if (bt != 0x02) //expect integer
                 return 0;
             bt = binaryReader.ReadByte();

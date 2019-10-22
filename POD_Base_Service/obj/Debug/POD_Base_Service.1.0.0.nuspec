@@ -3,8 +3,8 @@
   <metadata>
     <id>POD_Base_Service</id>
     <version>1.0.0</version>
-    <authors>POD_Base_Service</authors>
-    <owners>POD_Base_Service</owners>
+    <authors>Nadia Anvari</authors>
+    <owners>Nadia Anvari</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Package Description</description>
     <dependencies>
@@ -15,6 +15,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="G:\pod-fundamental-services-csharp\POD_Base_Service\bin\Debug\netstandard2.0\POD_Base_Service.dll" target="lib\netstandard2.0\POD_Base_Service.dll" />
+    <file src="E:\pod-fundamental-services-csharp\POD_Base_Service\bin\Debug\netstandard2.0\POD_Base_Service.dll" target="lib\netstandard2.0\POD_Base_Service.dll" />
   </files>
 </package>

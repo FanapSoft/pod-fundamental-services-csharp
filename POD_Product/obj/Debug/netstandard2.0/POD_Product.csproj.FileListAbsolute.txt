@@ -1,0 +1,11 @@
+E:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.deps.json
+E:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.dll
+E:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.pdb
+E:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+E:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CopyComplete
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.dll
+E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.pdb

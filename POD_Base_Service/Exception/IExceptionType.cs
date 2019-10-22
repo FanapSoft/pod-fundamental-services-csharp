@@ -1,4 +1,4 @@
-﻿using POD_Base_Service.Base;
+﻿using POD_Base_Service.Result;
 
 namespace POD_Base_Service.Exception
 {

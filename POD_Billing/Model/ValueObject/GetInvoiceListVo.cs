@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 
 namespace POD_Billing.Model.ValueObject
@@ -30,6 +31,7 @@ namespace POD_Billing.Model.ValueObject
         public long? FirstId { get; }
         public long? LastId { get; }
         public string[] ProductIdList { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public GetInvoiceListVo(Builder builder)
         {
@@ -53,6 +55,7 @@ namespace POD_Billing.Model.ValueObject
             FirstId = builder.GetFirstId();
             LastId = builder.GetLastId();
             ProductIdList = builder.GetProductIdList();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -60,7 +63,7 @@ namespace POD_Billing.Model.ValueObject
             private int? size;
 
             [Required]
-            private int? offSet;
+            private int? offset;
             private long? id;
             private string billNumber;
             private string uniqueNumber;
@@ -84,6 +87,9 @@ namespace POD_Billing.Model.ValueObject
             private long? lastId;
             private string[] productIdList;
 
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
+
             public int? GetSize()
             {
                 return size;
@@ -96,12 +102,13 @@ namespace POD_Billing.Model.ValueObject
             }
             public int? GetOffset()
             {
-                return offSet;
+                return offset;
             }
 
+            /// <param name="offset">حد پایین خروجی</param>
             public Builder SetOffset(int offset)
             {
-                this.offSet = offset;
+                this.offset = offset;
                 return this;
             }
             public long? GetId()
@@ -301,6 +308,16 @@ namespace POD_Billing.Model.ValueObject
             public Builder SetProductIdList(string[] productIdList)
             {
                 this.productIdList = productIdList;
+                return this;
+            }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

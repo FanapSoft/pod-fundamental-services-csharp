@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Dealing.Model.ValueObject
 {
@@ -48,7 +49,7 @@ namespace POD_Dealing.Model.ValueObject
         public string AgentCellphoneNumber { get; }
         public string AgentNationalCode { get; }
         public bool? ChangeAgent { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public UpdateBusinessVo(Builder builder)
         {
@@ -91,7 +92,7 @@ namespace POD_Dealing.Model.ValueObject
             AgentCellphoneNumber = builder.GetAgentCellphoneNumber();
             AgentNationalCode = builder.GetAgentNationalCode();
             ChangeAgent = builder.GetChangeAgent();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -122,7 +123,7 @@ namespace POD_Dealing.Model.ValueObject
             private string email;
 
             [Required]
-            private string[] guildCode; //guildCode[]
+            private string[] guildCode;
 
             [RegularExpression(RegexFormat.MobileNumber)]
             private string cellphone;
@@ -164,7 +165,7 @@ namespace POD_Dealing.Model.ValueObject
             private bool? changeAgent;
 
             [Required]
-            private string token;
+            private InternalServiceCallVo serviceCallParameters;
 
             public long? GetBizId()
             {
@@ -618,15 +619,14 @@ namespace POD_Dealing.Model.ValueObject
                 this.changeAgent = changeAgent;
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">توکنی که از پنل کسب و کار دریافت شده است - ApiToken</param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

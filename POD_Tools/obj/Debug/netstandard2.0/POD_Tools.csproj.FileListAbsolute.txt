@@ -1,0 +1,8 @@
+E:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.deps.json
+E:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.dll
+E:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.pdb
+E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.dll
+E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.pdb

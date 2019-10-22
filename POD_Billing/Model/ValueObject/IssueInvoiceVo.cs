@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Globalization;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -22,7 +22,7 @@ namespace POD_Billing.Model.ValueObject
         public string Deadline { get; }
         public string CurrencyCode { get; }
         public string VoucherHash { get; }
-        public string VerificationNeeded { get; }
+        public bool? VerificationNeeded { get; }
         public string VerifyAfterTimeout { get; }
         public bool? Preview { get; }
         public string Metadata { get; }
@@ -35,6 +35,7 @@ namespace POD_Billing.Model.ValueObject
         public string EventDescription { get; }
         public string EventMetadata { get; }
         public string Ott { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public IssueInvoiceVo(Builder builder)
         {
@@ -62,6 +63,7 @@ namespace POD_Billing.Model.ValueObject
             EventReminders = builder.GetEventReminders();
             EventDescription = builder.GetEventDescription();
             EventMetadata = builder.GetEventMetadata();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -88,7 +90,7 @@ namespace POD_Billing.Model.ValueObject
             private string deadline;
             private string currencyCode;
             private string[] voucherHash;
-            private string verificationNeeded;
+            private bool? verificationNeeded;
             private string verifyAfterTimeout;
             private bool? preview;
             private string metadata;
@@ -100,6 +102,7 @@ namespace POD_Billing.Model.ValueObject
             private string[] eventReminders;
             private string eventDescription;
             private string eventMetadata;
+            [Required] private InternalServiceCallVo serviceCallParameters;
 
             public long? GetUserId()
             {
@@ -150,9 +153,9 @@ namespace POD_Billing.Model.ValueObject
                 return redirectUrl;
             }
 
-            public Builder SetRedirectURL(string redirectURL)
+            public Builder SetRedirectURL(string redirectUrl)
             {
-                this.redirectUrl = redirectURL;
+                this.redirectUrl = redirectUrl;
                 return this;
             }
 
@@ -231,12 +234,12 @@ namespace POD_Billing.Model.ValueObject
                 this.voucherHash = voucherHash;
                 return this;
             }
-            public string GetVerificationNeeded()
+            public bool? GetVerificationNeeded()
             {
                 return verificationNeeded;
             }
 
-            public Builder SetVerificationNeeded(string verificationNeeded)
+            public Builder SetVerificationNeeded(bool verificationNeeded)
             {
                 this.verificationNeeded = verificationNeeded;
                 return this;
@@ -352,6 +355,17 @@ namespace POD_Billing.Model.ValueObject
                 this.eventMetadata = eventMetadata;
                 return this;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
+
             public IssueInvoiceVo Build()
             {
                 var hasErrorFields = this.ValidateByAttribute();

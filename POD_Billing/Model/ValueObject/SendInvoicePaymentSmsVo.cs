@@ -2,6 +2,7 @@
 using POD_Base_Service.Exception;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -14,6 +15,7 @@ namespace POD_Billing.Model.ValueObject
         public string RedirectUri { get; }
         public long[] DelegationId { get; }
         public bool? ForceDelegation { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public SendInvoicePaymentSmsVo(Builder builder)
         {
@@ -22,17 +24,21 @@ namespace POD_Billing.Model.ValueObject
             CallbackUri = builder.GetCallbackUri();
             RedirectUri = builder.GetRedirectUri();
             DelegationId = builder.GetDelegationId();
-            ForceDelegation = builder.GetForceDelegation();          
+            ForceDelegation = builder.GetForceDelegation();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
         {
             [Required] private long? invoiceId;
+
             private string wallet;
             [Url] private string callbackUri;
             [Url] private string redirectUri;
             private long[] delegationId;
             private bool? forceDelegation;
+
+            [Required] private InternalServiceCallVo serviceCallParameters;
 
             public long? GetInvoiceId()
             {
@@ -95,6 +101,16 @@ namespace POD_Billing.Model.ValueObject
             public Builder SetForceDelegation(bool forceDelegation)
             {
                 this.forceDelegation = forceDelegation;
+                return this;
+            }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

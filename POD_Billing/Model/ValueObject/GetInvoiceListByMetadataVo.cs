@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 
 namespace POD_Billing.Model.ValueObject
@@ -13,6 +15,7 @@ namespace POD_Billing.Model.ValueObject
         public string MetaQuery { get; }
         public bool? IsCanceled { get; }
         public bool? IsPayed { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public GetInvoiceListByMetadataVo(Builder builder)
         {
@@ -21,15 +24,20 @@ namespace POD_Billing.Model.ValueObject
             OffSet = builder.GetOffSet();
             IsCanceled = builder.GetIsCanceled();
             IsPayed = builder.GetIsPayed();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
-        {          
+        {    
+            [Required]
             private string metaQuery;
             private int? size;
             private int? offSet;
             private bool? isCanceled;
             private bool? isPayed;
+
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
 
             public string GetMetaQuery()
             {
@@ -82,6 +90,16 @@ namespace POD_Billing.Model.ValueObject
             public Builder SetIsPayed(bool isPayed)
             {
                 this.isPayed = isPayed;
+                return this;
+            }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

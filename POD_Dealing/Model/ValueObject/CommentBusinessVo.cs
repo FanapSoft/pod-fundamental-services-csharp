@@ -2,6 +2,7 @@
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Dealing.Model.ValueObject
 {
@@ -10,20 +11,25 @@ namespace POD_Dealing.Model.ValueObject
         public static Builder ConcreteBuilder => new Builder();
         public long? BusinessId { get; }
         public string Text { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public CommentBusinessVo(Builder builder)
         {
             BusinessId = builder.GetBusinessId();
             Text = builder.GetText();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
         {
-            [Required] private long? businessId;
-            [Required] private string text;
-            [Required] private string token;
+            [Required]
+            private long? businessId;
+
+            [Required]
+            private string text;
+
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
 
             public long? GetBusinessId()
             {
@@ -47,15 +53,14 @@ namespace POD_Dealing.Model.ValueObject
                 this.text = text.Trim();
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">توکنی که بعد از ورود به سیستم دریافت کرده اید - AccessToken</param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

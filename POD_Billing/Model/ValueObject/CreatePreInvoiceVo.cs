@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
+using POD_Base_Service.Result;
 using POD_Billing.Model.ServiceOutput;
 
 namespace POD_Billing.Model.ValueObject
@@ -11,7 +13,7 @@ namespace POD_Billing.Model.ValueObject
     public class CreatePreInvoiceVo
     {
         public static Builder ConcreteBuilder => new Builder();
-        public string Token { get; }
+        public string ApiToken { get; }
         public string Ott { get; }
         public string RedirectUri { get; }
         public long? UserId { get; }
@@ -24,13 +26,13 @@ namespace POD_Billing.Model.ValueObject
         public double? PreferredTaxRate { get; }
         public bool? VerificationNeeded { get; }
         public string CallUrl { get; }
-
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public CreatePreInvoiceVo(Builder builder)
         {
-            Token = builder.GetToken();
+            ApiToken = builder.GetApiToken();
             Ott = builder.GetOtt();
-            RedirectUri = builder.GetOtt();
+            RedirectUri = builder.GetRedirectUri();
             UserId = builder.GetUserId();
             ProductsInfo = builder.GetProductsInfo();
             GuildCode = builder.GetGuildCode();
@@ -41,12 +43,13 @@ namespace POD_Billing.Model.ValueObject
             PreferredTaxRate = builder.GetPreferredTaxRate();
             VerificationNeeded = builder.GetVerificationNeeded();
             CallUrl = builder.GetCallUrl();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
         {
-            //[Required]
-            private string token;
+            [Required]
+            private string apiToken;
 
             [Required]
             private string ott;
@@ -75,14 +78,17 @@ namespace POD_Billing.Model.ValueObject
             [Url]
             private string callUrl;
 
-            public string GetToken()
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
+
+            public string GetApiToken()
             {
-                return token;
+                return apiToken;
             }
 
-            public Builder SetToken(string token)
+            public Builder SetApiToken(string apiToken)
             {
-                this.token = token;
+                this.apiToken = apiToken;
                 return this;
             }
 
@@ -219,6 +225,16 @@ namespace POD_Billing.Model.ValueObject
             {
                 return callUrl;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
 
             public CreatePreInvoiceVo Build()
             {
@@ -235,14 +251,14 @@ namespace POD_Billing.Model.ValueObject
         /// <summary>
         /// برای نمایش فاکتور به کاربر باید او را به آدرس موجود در خروجی هدایت نمایید
         /// </summary>
-        /// <param name="hashCode">بدست آورید CreatePreInvoice این کد را باید از طریق اجرای سرویس </param>
-        public LinkSrv GetLink(string hashCode)
+        public LinkSrv GetLink(ResultSrv<ServiceCallResultSrv<PrivateCallSrv>> output)
         {
+            var hashCode = ((PrivateCallSrv)output.Result.Result).Result;
             if(string.IsNullOrEmpty(hashCode))
             {
                 throw PodException.BuildException(new InvalidParameter(new KeyValuePair<string, string>("HashCode", "The field is required.")));
             }
-            return new LinkSrv() { HashCode = hashCode, RedirectUrl = $"{BaseUrl.PrivateCallAddress}/v1/pbc/preinvoice/{hashCode}" };
+            return new LinkSrv { HashCode = hashCode, RedirectUrl = $"{BaseUrl.PrivateCallAddress}/v1/pbc/preinvoice/{hashCode}" };
         }
     }
 }

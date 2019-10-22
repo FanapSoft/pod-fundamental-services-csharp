@@ -22,7 +22,9 @@ namespace POD_Billing.Model.ValueObject
         public class Builder
         {
             [Required] private long? invoiceId;
+
             [Url] private string redirectUri;
+
             [Url] private string callUri;
 
             public long? GetInvoiceId()

@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -24,8 +25,11 @@ namespace POD_Billing.Model.ValueObject
         public class Builder
         {
             [Required] private string uniqueNumber;
+
             [Url] private string redirectUri;
+
             [Url] private string callUri;
+
             private string gateway;
 
             public string GetUniqueNumber()
@@ -73,7 +77,6 @@ namespace POD_Billing.Model.ValueObject
                 this.gateway = gateway;
                 return this;
             }
-
             public PayInvoiceByUniqueNumberVo Build()
             {
                 var hasErrorFields = this.ValidateByAttribute();

@@ -8,6 +8,8 @@ namespace POD_Dealing.Base
         {
             {"Token", "_token_"},
             {"TokenIssuer", "_token_issuer_"},
+            {"ScVoucherHash","scVoucherHash" },
+            {"ScApiKey", "scApiKey"},
             {"ClientId", "client_id"},
             {"ClientSecret", "client_secret"},
             {"Username", "username"},

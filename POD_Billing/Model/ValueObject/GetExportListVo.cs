@@ -3,6 +3,7 @@ using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using POD_Base_Service.Model.ValueObject;
 using POD_Billing.Model.ServiceOutput;
 using POD_Billing.Base.Enum;
 
@@ -16,6 +17,7 @@ namespace POD_Billing.Model.ValueObject
         public int? Size { get; }
         public FileStatusCode? StatusCode { get; }
         public string ServiceUrl { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public GetExportListVo(Builder builder)
         {
@@ -24,6 +26,7 @@ namespace POD_Billing.Model.ValueObject
             Size = builder.GetSize();
             StatusCode = builder.GetStatusCode();
             ServiceUrl = builder.GetServiceUrl();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -36,6 +39,9 @@ namespace POD_Billing.Model.ValueObject
             private int? size;
             private FileStatusCode? statusCode;
             private string serviceUrl;
+
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
 
 
             public long? GetId()
@@ -92,7 +98,16 @@ namespace POD_Billing.Model.ValueObject
                 this.serviceUrl = serviceUrl;
                 return this;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
 
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
 
             public GetExportListVo Build()
             {

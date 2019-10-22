@@ -14,6 +14,8 @@ namespace POD_Base_Service.Base
         public const string Email = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
         public const string PostalCode = @"^(?!(\d)\\1{3})[13-9]{4}[1346-9][013-9]{5}$";
         public const string WhiteSpace = @"\s+";
+        public const string BillId = @"^[0-9]{4,11}[1-6][0-9]$";
+        public const string PaymentId = @"^[0-9]{6,13}$";
     }
 }
 

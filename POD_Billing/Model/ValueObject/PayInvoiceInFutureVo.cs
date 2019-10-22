@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
+using POD_Base_Service.CustomAttribute;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Billing.Model.ValueObject
 {
@@ -15,6 +16,7 @@ namespace POD_Billing.Model.ValueObject
         public string GuildCode { get; }
         public string Wallet { get; }
         public string Ott { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public PayInvoiceInFutureVo(Builder builder)
         {
@@ -23,6 +25,7 @@ namespace POD_Billing.Model.ValueObject
             GuildCode = builder.GetGuildCode();
             Wallet = builder.GetWallet();
             Ott = builder.GetOtt();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -33,11 +36,16 @@ namespace POD_Billing.Model.ValueObject
             [RegularExpression(RegexFormat.ShamsiDate)]
             [Required]
             private string date;
+
+            [RequiredIf(nameof(wallet))]
             private string guildCode;
             private string wallet;
 
             [Required]
             private string ott;
+
+            [Required]
+            private InternalServiceCallVo serviceCallParameters;
 
             public long? GetInvoiceId()
             {
@@ -101,15 +109,21 @@ namespace POD_Billing.Model.ValueObject
                 this.ott = ott;
                 return this;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
 
             public PayInvoiceInFutureVo Build()
             {
                 var hasErrorFields = this.ValidateByAttribute();
-                if (string.IsNullOrEmpty(wallet) && string.IsNullOrEmpty(guildCode))
-                {
-                    hasErrorFields.Add(new KeyValuePair<string, string>("wallet,guildCode", "One of this Builder fields is required."));
-                }
-
+  
                 if (hasErrorFields.Any())
                 {
                     throw PodException.BuildException(new InvalidParameter(hasErrorFields));

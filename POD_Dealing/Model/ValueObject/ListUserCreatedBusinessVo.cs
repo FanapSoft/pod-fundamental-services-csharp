@@ -2,6 +2,7 @@
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Dealing.Model.ValueObject
 {
@@ -27,7 +28,7 @@ namespace POD_Dealing.Model.ValueObject
         public string EconomicCode { get; }
         public string Email { get; }
         public string Cellphone { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public ListUserCreatedBusinessVo(Builder builder)
         {
@@ -50,7 +51,7 @@ namespace POD_Dealing.Model.ValueObject
             EconomicCode = builder.GetEconomicCode();
             Email = builder.GetEmail();
             Cellphone = builder.GetCellphone();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -83,7 +84,7 @@ namespace POD_Dealing.Model.ValueObject
             private string cellphone;
 
             [Required]
-            private string token;
+            private InternalServiceCallVo serviceCallParameters;
 
             public long[] GetBizId()
             {
@@ -305,15 +306,14 @@ namespace POD_Dealing.Model.ValueObject
                 this.cellphone = cellphone.Trim();
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">توکنی که از پنل کسب و کار دریافت شده است - ApiToken</param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
@@ -52,9 +53,13 @@ namespace POD_Billing.Model.ValueObject
             /// <param name="price">مبلغ بند فاکتور , باید کوچکتر مساوی مقدار قبلی باشد</param>
             public Builder SetPrice(decimal price)
             {
-                this.price = price.ToString();
+                this.price = price.ToString(CultureInfo.InvariantCulture);
                 return this;
             }
+
+            /// <summary>
+            /// در صورتی که شناسه محصول صفر نباشد می توانید ازین تابع استفاده نمایید
+            /// </summary>
             public Builder SetPrice(PriceValue price)
             {
                 this.price = price.ToString();

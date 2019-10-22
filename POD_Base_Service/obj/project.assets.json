@@ -307,13 +307,13 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "restore": {
-      "projectUniqueName": "E:\\tonight\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
+      "projectUniqueName": "E:\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
       "projectName": "POD_Base_Service",
-      "projectPath": "E:\\tonight\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
+      "projectPath": "E:\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\tonight\\pod-fundamental-services-csharp\\POD_Base_Service\\obj\\",
+      "outputPath": "E:\\pod-fundamental-services-csharp\\POD_Base_Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -2,6 +2,7 @@
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Dealing.Model.ValueObject
 {
@@ -10,13 +11,13 @@ namespace POD_Dealing.Model.ValueObject
         public static Builder ConcreteBuilder => new Builder();
         public long? BusinessId { get; }
         public bool? DisFavorite { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public BusinessFavoriteVo(Builder builder)
         {
             BusinessId = builder.GetBusinessId();
             DisFavorite = builder.GetDisFavorite();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -28,7 +29,7 @@ namespace POD_Dealing.Model.ValueObject
             private bool? disFavorite;
 
             [Required]
-            private string token;
+            private InternalServiceCallVo serviceCallParameters;
 
             public long? GetBusinessId()
             {
@@ -55,15 +56,14 @@ namespace POD_Dealing.Model.ValueObject
                 this.disFavorite = disFavorite;
                 return this;
             }
-            public string GetToken()
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token">توکنی که بعد از ورود به سیستم دریافت کرده اید - AccessToken</param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

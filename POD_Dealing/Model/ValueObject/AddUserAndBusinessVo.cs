@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using POD_Base_Service.Base;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Dealing.Model.ValueObject
 {
@@ -41,7 +42,7 @@ namespace POD_Dealing.Model.ValueObject
         public string AgentLastName { get; }
         public string AgentCellphoneNumber { get; }
         public string AgentNationalCode { get; }
-        public string Token { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public AddUserAndBusinessVo(Builder builder)
         {
@@ -77,7 +78,7 @@ namespace POD_Dealing.Model.ValueObject
             AgentLastName = builder.GetAgentLastName();
             AgentCellphoneNumber = builder.GetAgentCellphoneNumber();
             AgentNationalCode = builder.GetAgentNationalCode();
-            Token = builder.GetToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -88,11 +89,9 @@ namespace POD_Dealing.Model.ValueObject
             private string firstName;
             private string lastName;
 
-            [RegularExpression(RegexFormat.Sheba)]
-            private string sheba;
+            [RegularExpression(RegexFormat.Sheba)] private string sheba;
 
-            [StringLength(11, MinimumLength = 11)]
-            private string nationalCode;
+            [StringLength(11, MinimumLength = 11)] private string nationalCode;
             private string economicCode;
             private string registrationNumber;
 
@@ -102,6 +101,7 @@ namespace POD_Dealing.Model.ValueObject
 
             [RegularExpression(RegexFormat.MobileNumber)]
             private string cellphone;
+
             private string phone;
             private string fax;
 
@@ -138,7 +138,8 @@ namespace POD_Dealing.Model.ValueObject
             [RegularExpression(RegexFormat.NationalCode)]
             private string agentNationalCode;
 
-            [Required] private string token;
+            [Required] private InternalServiceCallVo serviceCallParameters;
+
             public string GetUsername()
             {
                 return username;
@@ -513,15 +514,15 @@ namespace POD_Dealing.Model.ValueObject
                 this.agentNationalCode = agentNationalCode.Trim();
                 return this;
             }
-            public string GetToken()
+
+            public InternalServiceCallVo GetServiceCallParameters()
             {
-                return token;
+                return serviceCallParameters;
             }
 
-            /// <param name="token"> توکنی که از پنل کسب و کار دریافت شده است - ApiToken</param>
-            public Builder SetToken(string token)
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
             {
-                this.token = token;
+                this.serviceCallParameters = serviceCallParameters;
                 return this;
             }
 

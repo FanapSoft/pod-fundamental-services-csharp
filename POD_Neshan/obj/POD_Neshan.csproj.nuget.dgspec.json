@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj": {}
+  },
+  "projects": {
+    "E:\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj",
+        "projectName": "POD_Neshan",
+        "projectPath": "E:\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "E:\\pod-fundamental-services-csharp\\POD_Neshan\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\NugetPackage": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "POD_Base_Service": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

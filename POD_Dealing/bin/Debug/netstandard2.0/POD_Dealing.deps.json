@@ -1,18 +1,16 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "9619f21c53fec1e15cae7fcdf3b77d7cd3a17468"
+    "signature": "42a77eacce121e3fa812f3a54d78fb1ea509286b"
   },
   "compilationOptions": {},
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "POD_Dealing/1.0.1": {
+      "POD_Dealing/2.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "POD_Base_Service": "1.0.0",
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0",
+          "POD_Base_Service": "2.0.0",
           "Newtonsoft.Json": "11.0.0.0"
         },
         "runtime": {
@@ -23,6 +21,18 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "POD_Base_Service/2.0.0": {
+        "dependencies": {
+          "RestSharp": "106.6.9",
+          "System.ComponentModel.Annotations": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/POD_Base_Service.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
         }
       },
       "RestSharp/106.6.9": {
@@ -41,15 +51,6 @@
           }
         }
       },
-      "POD_Base_Service/1.0.0": {
-        "dependencies": {
-          "RestSharp": "106.6.9",
-          "System.ComponentModel.Annotations": "4.5.0"
-        },
-        "runtime": {
-          "POD_Base_Service.dll": {}
-        }
-      },
       "Newtonsoft.Json/11.0.0.0": {
         "runtime": {
           "Newtonsoft.Json.dll": {
@@ -61,7 +62,7 @@
     }
   },
   "libraries": {
-    "POD_Dealing/1.0.1": {
+    "POD_Dealing/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -80,6 +81,13 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "POD_Base_Service/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zMagJERPLloDoBCKK/cyquovNkFb1tOlqvmaGL5IW2D2dcvR3UAnilkG2aZmh1umQWb/6faTaJ3/buYCQ9EXPg==",
+      "path": "pod_base_service/2.0.0",
+      "hashPath": "pod_base_service.2.0.0.nupkg.sha512"
+    },
     "RestSharp/106.6.9": {
       "type": "package",
       "serviceable": true,
@@ -93,11 +101,6 @@
       "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
       "path": "system.componentmodel.annotations/4.5.0",
       "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
-    },
-    "POD_Base_Service/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "Newtonsoft.Json/11.0.0.0": {
       "type": "reference",

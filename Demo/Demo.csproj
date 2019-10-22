@@ -8,10 +8,18 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="POD_Billing" Version="1.0.0" />
-    <PackageReference Include="POD_Dealing" Version="1.0.1" />
-    <PackageReference Include="Pod_SSO" Version="1.0.1" />
-    <PackageReference Include="POD_UserOperation" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\POD_Billing\POD_Billing.csproj" />
+    <ProjectReference Include="..\POD_Dealing\POD_Dealing.csproj" />
+    <ProjectReference Include="..\POD_Neshan\POD_Neshan.csproj" />
+    <ProjectReference Include="..\POD_Notification\POD_Notification.csproj" />
+    <ProjectReference Include="..\POD_Product\POD_Product.csproj" />
+    <ProjectReference Include="..\POD_Subscription\POD_Subscription.csproj" />
+    <ProjectReference Include="..\POD_Tools\POD_Tools.csproj" />
+    <ProjectReference Include="..\SSO\POD_SSO.csproj" />
+    <ProjectReference Include="..\UserOperation\POD_UserOperation.csproj" />
   </ItemGroup>
 
 </Project>

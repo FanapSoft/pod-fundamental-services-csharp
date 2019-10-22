@@ -35,7 +35,7 @@ namespace POD_SSO.Base
             {"Scope", "scope"},
             {"CodeChallenge", "code_challenge"},
             {"CodeChallengeMethod", "code_challenge_method"},
-            {"Identity", "identity"},
+            {"Identity", "identity"}
         };
         public static string GetPodName(this string key)
         {

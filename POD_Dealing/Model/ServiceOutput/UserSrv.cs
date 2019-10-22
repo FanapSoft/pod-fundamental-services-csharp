@@ -1,4 +1,6 @@
-﻿namespace POD_Dealing.Model.ServiceOutput
+﻿using POD_Base_Service.Model.ServiceOutput;
+
+namespace POD_Dealing.Model.ServiceOutput
 {
     public class UserSrv
     {
