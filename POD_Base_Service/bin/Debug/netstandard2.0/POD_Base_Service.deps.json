@@ -1,13 +1,13 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "9619f21c53fec1e15cae7fcdf3b77d7cd3a17468"
+    "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "POD_Base_Service/2.0.0": {
+      "POD_Base_Service/4.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "RestSharp": "106.6.9",
@@ -51,7 +51,7 @@
     }
   },
   "libraries": {
-    "POD_Base_Service/2.0.0": {
+    "POD_Base_Service/4.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -2,10 +2,41 @@ E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Nesha
 E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.dll
 E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.pdb
 E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.dll
+E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.pdb
 E:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csprojAssemblyReference.cache
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CoreCompileInputs.cache
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfoInputs.cache
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfo.cs
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CopyComplete
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.dll
 E:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csprojAssemblyReference.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.pdb
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.deps.json
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.dll
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Neshan.pdb
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.dll
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.pdb
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Neshan\obj\Debug\netstandard2.0\POD_Neshan.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Neshan\bin\Debug\netstandard2.0\POD_Base_Service.pdb

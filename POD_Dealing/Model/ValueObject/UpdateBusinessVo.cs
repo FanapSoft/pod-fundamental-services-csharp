@@ -114,7 +114,7 @@ namespace POD_Dealing.Model.ValueObject
             [RegularExpression(RegexFormat.Sheba)]
             private string sheba;
 
-            [StringLength(11, MinimumLength = 11)]
+            [RegularExpression(RegexFormat.NationalCode)]
             private string nationalCode;
             private string economicCode;
             private string registrationNumber;

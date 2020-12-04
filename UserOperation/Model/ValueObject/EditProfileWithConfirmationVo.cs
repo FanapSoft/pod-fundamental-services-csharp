@@ -42,11 +42,11 @@ namespace POD_UserOperation.Model.ValueObject
             NickName = builder.GetNickName();
             Email = builder.GetEmail();
             PhoneNumber = builder.GetPhoneNumber();
-            CellphoneNumber = builder.GetClientId();
+            CellphoneNumber = builder.GetCellphoneNumber();
             NationalCode = builder.GetNationalCode();
             Gender = builder.GetGender();
             Address = builder.GetAddress();
-            BirthDate = builder.GetClientId();
+            BirthDate = builder.GetBirthDate();
             Country = builder.GetCountry();
             State = builder.GetState();
             City = builder.GetCity();

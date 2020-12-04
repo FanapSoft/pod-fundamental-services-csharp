@@ -1,4 +1,6 @@
 ﻿
+using POD_Base_Service.Model.ServiceOutput;
+
 namespace POD_Subscription.Model.ServiceOutput
 {
     public class SubscriptionFullSrv

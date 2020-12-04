@@ -1,15 +1,18 @@
-﻿namespace POD_Product.Base
+﻿using POD_Base_Service.Base;
+using POD_Base_Service.Base.Enum;
+
+namespace POD_Product.Base
 {
     internal static class ServiceCallProducts
     {
-        internal const long AddProduct = 29851;
-        internal const long AddProducts = 29852;
-        internal const long UpdateProduct = 29853;
-        internal const long UpdateProducts = 29854;
-        internal const long ProductList = 29855;
-        internal const long BusinessProductList = 29856;
-        internal const long AttributeTemplateList = 29857;
-        internal const long SearchProduct = 29858;
-        internal const long SearchSubProduct = 29859;
+        internal static long AddProduct => Config.ServerType == ServerType.SandBox ? 39347 : 29851;
+        internal static long AddProducts => Config.ServerType == ServerType.SandBox ? 39348 : 29852;
+        internal static long UpdateProduct => Config.ServerType == ServerType.SandBox ? 39349 : 29853;
+        internal static long UpdateProducts => Config.ServerType == ServerType.SandBox ? 39350 : 29854;
+        internal static long ProductList => Config.ServerType == ServerType.SandBox ? 39351 : 29855;
+        internal static long BusinessProductList => Config.ServerType == ServerType.SandBox ? 39352 : 29856;
+        internal static long AttributeTemplateList => Config.ServerType == ServerType.SandBox ? 39353 : 29857;
+        internal static long SearchProduct => Config.ServerType == ServerType.SandBox ? 39354 : 29858;
+        internal static long SearchSubProduct => Config.ServerType == ServerType.SandBox ? 39355 : 29859;
     }
 }

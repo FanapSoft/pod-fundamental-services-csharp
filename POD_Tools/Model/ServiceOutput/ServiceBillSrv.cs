@@ -1,4 +1,5 @@
 ﻿using System;
+using POD_Base_Service.Model.ServiceOutput;
 
 namespace POD_Tools.Model.ServiceOutput
 {

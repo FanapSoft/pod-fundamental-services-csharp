@@ -1,0 +1,30 @@
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.deps.json
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.dll
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.pdb
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.dll
+E:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.dll
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.dll
+D:\New folder\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.pdb
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.deps.json
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.dll
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_VirtualAccount.pdb
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.dll
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.pdb
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_VirtualAccount\obj\Debug\netstandard2.0\POD_VirtualAccount.csproj.CopyComplete

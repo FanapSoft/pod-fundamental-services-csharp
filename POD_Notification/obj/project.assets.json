@@ -44,7 +44,7 @@
           "lib/netstandard2.0/System.ComponentModel.Annotations.dll": {}
         }
       },
-      "POD_Base_Service/2.0.0": {
+      "POD_Base_Service/4.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -62,7 +62,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -220,7 +220,7 @@
       ]
     },
     "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
+      "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.5.0",
       "files": [
@@ -308,7 +308,7 @@
         "version.txt"
       ]
     },
-    "POD_Base_Service/2.0.0": {
+    "POD_Base_Service/4.0.0": {
       "type": "project",
       "path": "../POD_Base_Service/POD_Base_Service.csproj",
       "msbuildProject": "../POD_Base_Service/POD_Base_Service.csproj"
@@ -317,44 +317,41 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
-      "POD_Base_Service >= 2.0.0",
-      "RestSharp >= 106.6.9",
-      "System.ComponentModel.Annotations >= 4.5.0"
+      "POD_Base_Service >= 4.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\nadia\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "restore": {
-      "projectUniqueName": "E:\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
+      "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
       "projectName": "POD_Notification",
-      "projectPath": "E:\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\pod-fundamental-services-csharp\\POD_Notification\\obj\\",
+      "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
+      "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+      "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "E:\\NugetPackage": {},
+        "http://nuget.geeksms.uat.co/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "E:\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
-              "projectPath": "E:\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+            "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+              "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
             }
           }
         }
@@ -373,21 +370,19 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
-          },
-          "RestSharp": {
-            "target": "Package",
-            "version": "[106.6.9, )"
-          },
-          "System.ComponentModel.Annotations": {
-            "target": "Package",
-            "version": "[4.5.0, )"
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

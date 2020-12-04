@@ -6,3 +6,25 @@ E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD
 E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfo.cs
 E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.dll
 E:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.pdb
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.deps.json
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.dll
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Subscription.pdb
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.dll
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.pdb
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\pod-fundamental-services-csharp\POD_Subscription\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Subscription\obj\Debug\netstandard2.0\POD_Subscription.csproj.CopyComplete

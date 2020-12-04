@@ -29,7 +29,8 @@ namespace POD_Billing.Model.ValueObject
 
             [Required] private string price;
 
-            [Required] private string productDescription;
+            [Required]
+            private string productDescription;
 
             [Required] private decimal? quantity;
 

@@ -2,6 +2,7 @@
 using System.Linq;
 using POD_Base_Service.Base;
 using POD_Base_Service.Exception;
+using POD_Base_Service.Model.ValueObject;
 
 namespace POD_Notification.Model.ValueObject
 {
@@ -10,13 +11,15 @@ namespace POD_Notification.Model.ValueObject
         public static Builder ConcreteBuilder => new Builder();
         public EmailContentVo Content { get; }
         public string ServiceName { get; }
-        public string Token { get; }
+        public string ApiToken { get; }
+        public InternalServiceCallVo ServiceCallParameters { get; }
 
         public EmailVo(Builder builder)
         {
             Content = builder.GetContent();
             ServiceName = builder.GetServiceName();
-            Token = builder.GetToken();
+            ApiToken = builder.GetApiToken();
+            ServiceCallParameters = builder.GetServiceCallParameters();
         }
 
         public class Builder
@@ -27,7 +30,9 @@ namespace POD_Notification.Model.ValueObject
             private string serviceName;
 
             [Required]
-            private string token;
+            private string apiToken;
+
+            [Required] private InternalServiceCallVo serviceCallParameters;
 
             public EmailContentVo GetContent()
             {
@@ -51,19 +56,30 @@ namespace POD_Notification.Model.ValueObject
                 this.serviceName = serviceName;
                 return this;
             }
-            public string GetToken()
+            public string GetApiToken()
             {
-                return token;
+                return apiToken;
             }
 
-            /// <param name="token">AccessToken Or ApiToken         
+            /// <param name="apiToken">AccessApiToken Or ApiApiToken         
             /// توکنی که بعد از ورود به سیستم یا از پنل کسب و کار دریافت شده است
             /// </param>
-            public Builder SetToken(string token)
+            public Builder SetApiToken(string apiToken)
             {
-                this.token = token;
+                this.apiToken = apiToken;
                 return this;
             }
+            public InternalServiceCallVo GetServiceCallParameters()
+            {
+                return serviceCallParameters;
+            }
+
+            public Builder SetServiceCallParameters(InternalServiceCallVo serviceCallParameters)
+            {
+                this.serviceCallParameters = serviceCallParameters;
+                return this;
+            }
+
             public EmailVo Build()
             {
                 var hasErrorFields = this.ValidateByAttribute();

@@ -6,7 +6,11 @@ namespace POD_Notification.Base
     {
         public static Dictionary<string, string> ParametersName = new Dictionary<string, string>
         {
-            {"Token", "apiToken"},
+            {"Token", "_token_"},
+            {"TokenIssuer", "_token_issuer_"},
+            {"ScVoucherHash", "scVoucherHash"},
+            {"ScApiKey", "scApiKey"},
+            {"ApiToken", "apiToken"},
             {"ServiceName", "serviceName"},
             {"Content", "content"},
             {"Receptor", "receptor"},
@@ -18,8 +22,8 @@ namespace POD_Notification.Base
             {"MobileNumbers", "mobileNumbers"},
             {"Scheduler", "scheduler"},
             {"Body", "content"},
-            {"NotificationMessageId", "content"},
-            {"MessageId", "content"},
+            {"NotificationMessageId", "id"},
+            {"MessageId", "id"},
             {"To", "to"},
             {"ReplyAddress", "replyAddress"},
             {"Subject", "subject"},
@@ -37,6 +41,7 @@ namespace POD_Notification.Base
             {"Text", "text"},
             {"ExtraData", "extra"},
             {"AppId", "appId"},
+            {"ServiceCallParameters", "serviceCallParameters"},
         };
         public static string GetPodName(this string key)
         {

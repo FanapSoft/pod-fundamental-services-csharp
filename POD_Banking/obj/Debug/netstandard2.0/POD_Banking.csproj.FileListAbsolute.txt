@@ -1,0 +1,56 @@
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.deps.json
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.dll
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.pdb
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csprojAssemblyReference.cache
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CoreCompileInputs.cache
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfoInputs.cache
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfo.cs
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CopyComplete
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.dll
+E:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.pdb
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.dll
+E:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.deps.json
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.dll
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.pdb
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.dll
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+G:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csprojAssemblyReference.cache
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CoreCompileInputs.cache
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfoInputs.cache
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfo.cs
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CopyComplete
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.dll
+G:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csprojAssemblyReference.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.pdb
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.deps.json
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.dll
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Banking.pdb
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.dll
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.pdb
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Banking\obj\Debug\netstandard2.0\POD_Banking.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Banking\bin\Debug\netstandard2.0\POD_Base_Service.pdb

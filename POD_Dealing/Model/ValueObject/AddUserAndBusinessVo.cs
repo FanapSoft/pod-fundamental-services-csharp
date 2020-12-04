@@ -89,9 +89,11 @@ namespace POD_Dealing.Model.ValueObject
             private string firstName;
             private string lastName;
 
-            [RegularExpression(RegexFormat.Sheba)] private string sheba;
+            [RegularExpression(RegexFormat.Sheba)]
+            private string sheba;
 
-            [StringLength(11, MinimumLength = 11)] private string nationalCode;
+            [RegularExpression(RegexFormat.NationalCode)]
+            private string nationalCode;
             private string economicCode;
             private string registrationNumber;
 
@@ -209,7 +211,7 @@ namespace POD_Dealing.Model.ValueObject
                 return nationalCode;
             }
 
-            /// <param name="nationalCode">شناسه ملی کسب و کار- 11 رقمی</param>
+            /// <param name="nationalCode">شناسه ملی کسب و کار- 10 رقمی</param>
             public Builder SetNationalCode(string nationalCode)
             {
                 this.nationalCode = nationalCode.Trim();

@@ -1,0 +1,1057 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Demo\\POD_Demo.csproj": {}
+  },
+  "projects": {
+    "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\Booking_Service.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\Booking_Service.csproj",
+        "projectName": "Booking_Service",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\Booking_Service.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\POD_AI.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\POD_AI.csproj",
+        "projectName": "POD_AI",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\POD_AI.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\POD_Avand.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\POD_Avand.csproj",
+        "projectName": "POD_Avand",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\POD_Avand.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\POD_Banking.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\POD_Banking.csproj",
+        "projectName": "POD_Banking",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\POD_Banking.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
+        "projectName": "POD_Base_Service",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.6.9, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\POD_Billing.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\POD_Billing.csproj",
+        "projectName": "POD_Billing",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\POD_Billing.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\POD_Dealing.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\POD_Dealing.csproj",
+        "projectName": "POD_Dealing",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\POD_Dealing.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Demo\\POD_Demo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Demo\\POD_Demo.csproj",
+        "projectName": "POD_Demo",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Demo\\POD_Demo.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Demo\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\Booking_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\Booking_Service\\Booking_Service.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\POD_AI.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_AI\\POD_AI.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\POD_Avand.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Avand\\POD_Avand.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\POD_Banking.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Banking\\POD_Banking.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\POD_Billing.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Billing\\POD_Billing.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\POD_Dealing.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Dealing\\POD_Dealing.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\POD_Product.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\POD_Product.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\POD_Subscription.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\POD_Subscription.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\POD_Tools.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\POD_Tools.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\POD_VirtualAccount.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\POD_VirtualAccount.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\POD_SSO.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\POD_SSO.csproj"
+              },
+              "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\POD_UserOperation.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\POD_UserOperation.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj",
+        "projectName": "POD_Neshan",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\POD_Neshan.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Neshan\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
+        "projectName": "POD_Notification",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\POD_Product.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\POD_Product.csproj",
+        "projectName": "POD_Product",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\POD_Product.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Product\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\POD_Subscription.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\POD_Subscription.csproj",
+        "projectName": "POD_Subscription",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\POD_Subscription.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Subscription\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\POD_Tools.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\POD_Tools.csproj",
+        "projectName": "POD_Tools",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\POD_Tools.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Tools\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\POD_VirtualAccount.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\POD_VirtualAccount.csproj",
+        "projectName": "POD_VirtualAccount",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\POD_VirtualAccount.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_VirtualAccount\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\POD_SSO.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\POD_SSO.csproj",
+        "projectName": "POD_SSO",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\POD_SSO.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\SSO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\POD_UserOperation.csproj": {
+      "version": "4.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\POD_UserOperation.csproj",
+        "projectName": "POD_UserOperation",
+        "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\POD_UserOperation.csproj",
+        "packagesPath": "C:\\Users\\nadia\\.nuget\\packages\\",
+        "outputPath": "E:\\Fanap\\pod-fundamental-services-csharp\\UserOperation\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nadia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "http://nuget.geeksms.uat.co/nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj": {
+                "projectPath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

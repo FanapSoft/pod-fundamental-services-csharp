@@ -6,3 +6,25 @@ E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.
 E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfo.cs
 E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.dll
 E:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.pdb
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.deps.json
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.dll
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Tools.pdb
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.dll
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.pdb
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\pod-fundamental-services-csharp\POD_Tools\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Tools\obj\Debug\netstandard2.0\POD_Tools.csproj.CopyComplete

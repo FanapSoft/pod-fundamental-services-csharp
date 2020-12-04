@@ -26,9 +26,40 @@ E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.dll
 E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.pdb
 E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
 E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csprojAssemblyReference.cache
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CoreCompileInputs.cache
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfoInputs.cache
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfo.cs
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CopyComplete
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.dll
 E:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.pdb
+E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.dll
+E:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.deps.json
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.dll
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.pdb
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\New folder\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csprojAssemblyReference.cache
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.dll
+D:\New folder\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.pdb
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.deps.json
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.dll
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_SSO.pdb
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.dll
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.pdb
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\SSO\obj\Debug\netstandard2.0\POD_SSO.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\SSO\bin\Debug\netstandard2.0\POD_Base_Service.pdb

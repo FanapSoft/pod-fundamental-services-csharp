@@ -9,3 +9,28 @@ E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Prod
 E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CopyComplete
 E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.dll
 E:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.pdb
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.deps.json
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.dll
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Product.pdb
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.dll
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.pdb
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Product\obj\Debug\netstandard2.0\POD_Product.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Product\bin\Debug\netstandard2.0\POD_Base_Service.pdb

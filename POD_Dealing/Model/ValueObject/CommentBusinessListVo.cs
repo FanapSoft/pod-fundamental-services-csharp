@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using POD_Base_Service.Base;
+using POD_Base_Service.CustomAttribute;
 using POD_Base_Service.Exception;
 using POD_Base_Service.Model.ValueObject;
 
@@ -32,6 +33,8 @@ namespace POD_Dealing.Model.ValueObject
             private long? businessId;
             private long? firstId;
             private long? lastId;
+
+            [RequiredIf(nameof(firstId),nameof(lastId))]
             private int? offset;
 
             [Required]

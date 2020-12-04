@@ -39,6 +39,7 @@ namespace POD_Dealing.Base
             {"TagTreeCategoryName", "tagTreeCategoryName"},
             {"Link", "link"},
             {"Lat", "lat"},
+            {"Lng", "lng"},
             {"AgentFirstName", "agentFirstName"},
             {"AgentLastName", "agentLastName"},
             {"AgentCellphoneNumber", "agentCellphoneNumber"},
@@ -63,7 +64,12 @@ namespace POD_Dealing.Base
             {"FirstId", "firstId"},
             {"LastId", "lastId"},
             {"CommentId", "commentId"},
-            {"BusinessId", "businessId"}
+            {"BusinessId", "businessId"},
+            {"DealerBizId", "dealerBizId"},
+            {"EntityId", "productId"},
+            {"AllProductAllow", "allProductAllow"},
+            {"Enable", "enable"},
+            {"DealingBusinessId", "dealingBusinessId"}
         };
         public static string GetPodName(this string key)
         {

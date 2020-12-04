@@ -57,7 +57,7 @@ namespace POD_Dealing.Model.ValueObject
         public class Builder
         {
             private long[] bizId;
-            private string[] guildCode; //guildCode[]
+            private string[] guildCode;
             private int? offset;
             private int? size;
             private string query;
@@ -74,7 +74,7 @@ namespace POD_Dealing.Model.ValueObject
             [RegularExpression(RegexFormat.Sheba)]
             private string sheba;
 
-            [StringLength(11, MinimumLength = 11)]
+            [RegularExpression(RegexFormat.NationalCode)]
             private string nationalCode;
             private string economicCode;
 

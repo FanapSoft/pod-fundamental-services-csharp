@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml;
 using Newtonsoft.Json.Linq;
 
 namespace POD_Base_Service.Base
@@ -92,7 +93,7 @@ namespace POD_Base_Service.Base
             return targetMembers;
         }
 
-        public static List<KeyValuePair<string, string>> FilterNotNull<T>(this T obj, Dictionary<string, string> podParameterName)
+        public static List<KeyValuePair<string, string>> FilterNotNull<T>(this T obj, Dictionary<string, string> podParameterName,bool ignoreNullValue=true)
         {
             var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
             var properties = obj.GetType().GetProperties(bindingFlags);
@@ -100,7 +101,7 @@ namespace POD_Base_Service.Base
             foreach (var pr in properties)
             {
                 var val = pr.GetValue(obj);
-                if (val == null) continue;
+                if (ignoreNullValue && val == null) continue;
                 if (val is IList valueList)
                 {
                     if (val is Array)
@@ -116,13 +117,13 @@ namespace POD_Base_Service.Base
                         var objects = valueList.Cast<object>().ToList();
                         foreach (var ob in objects)
                         {
-                           notNullProperties.AddRange(ob.FilterNotNull(podParameterName));
+                            notNullProperties.AddRange(ob.FilterNotNull(podParameterName, ignoreNullValue));
                         }
                     }
                 }
                 else if (pr.PropertyType.IsClass && pr.PropertyType.Assembly.FullName.StartsWith("POD_"))
                 {
-                    notNullProperties.AddRange(val.FilterNotNull(podParameterName));
+                    notNullProperties.AddRange(val.FilterNotNull(podParameterName, ignoreNullValue));
                 }
                 else
                 {
@@ -229,6 +230,75 @@ namespace POD_Base_Service.Base
             return shamsiDate;
         }
 
+        public static bool TryParse(this string xmlString,out XmlDocument xmlDocument)
+        {
+            try
+            {
+                xmlDocument = new XmlDocument();
+                xmlDocument.LoadXml(xmlString);
+                return true;
+            }
+            catch
+            {
+                xmlDocument = null;
+                return false;
+            }
+        }
+
+        #region Signature
+
+        public static string GetBankingSignature(this string dataToSign, string privateKey, HashAlgorithmName hashAlgorithmName)
+        {
+            var csp = new RSACryptoServiceProvider(2048);
+            csp.FromXmlStringEx(privateKey);
+            var inputBytes = Encoding.UTF8.GetBytes(dataToSign);
+            var signatureBytes = csp.SignData(inputBytes,hashAlgorithmName.ToString());
+            return Convert.ToBase64String(signatureBytes);
+        }
+        public static void FromXmlStringEx(this RSA rsa, string xmlString)
+        {
+            var parameters = new RSAParameters();
+            var xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xmlString);
+
+            if (xmlDoc.DocumentElement.Name.Equals("RSAKeyValue"))
+            {
+                foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
+                {
+                    switch (node.Name)
+                    {
+                        case "Modulus": parameters.Modulus = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "Exponent": parameters.Exponent = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "P": parameters.P = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "Q": parameters.Q = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "DP": parameters.DP = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "DQ": parameters.DQ = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "InverseQ": parameters.InverseQ = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                        case "D": parameters.D = (string.IsNullOrEmpty(node.InnerText) ? null : Convert.FromBase64String(node.InnerText)); break;
+                    }
+                }
+            }
+            else
+            {
+                throw new System.Exception("Invalid XML RSA key.");
+            }
+
+            rsa.ImportParameters(parameters);
+        }
+        public static string ToXmlStringEx(this RSA rsa, bool includePrivateParameters)
+        {
+            RSAParameters parameters = rsa.ExportParameters(includePrivateParameters);
+
+            return string.Format("<RSAKeyValue><Modulus>{0}</Modulus><Exponent>{1}</Exponent><P>{2}</P><Q>{3}</Q><DP>{4}</DP><DQ>{5}</DQ><InverseQ>{6}</InverseQ><D>{7}</D></RSAKeyValue>",
+                  parameters.Modulus != null ? Convert.ToBase64String(parameters.Modulus) : null,
+                  parameters.Exponent != null ? Convert.ToBase64String(parameters.Exponent) : null,
+                  parameters.P != null ? Convert.ToBase64String(parameters.P) : null,
+                  parameters.Q != null ? Convert.ToBase64String(parameters.Q) : null,
+                  parameters.DP != null ? Convert.ToBase64String(parameters.DP) : null,
+                  parameters.DQ != null ? Convert.ToBase64String(parameters.DQ) : null,
+                  parameters.InverseQ != null ? Convert.ToBase64String(parameters.InverseQ) : null,
+                  parameters.D != null ? Convert.ToBase64String(parameters.D) : null);
+        }
         public static string GetSignature(this string dataToSign, HashAlgorithmName hashAlgorithmName, string pemFilePath)
         {
             var rsaCsp = LoadRsaFile(pemFilePath);
@@ -237,7 +307,6 @@ namespace POD_Base_Service.Base
             var signatureBase64 = Convert.ToBase64String(signatureBytes);
             return signatureBase64;
         }
-
         public static string GetSignature(this string dataToSign, string privateKey, HashAlgorithmName hashAlgorithmName)
         {
             var res = GetPem("RSA PRIVATE KEY", Encoding.ASCII.GetBytes(privateKey));
@@ -247,7 +316,6 @@ namespace POD_Base_Service.Base
             var signatureBase64 = Convert.ToBase64String(signatureBytes);
             return signatureBase64;
         }
-
         private static byte[] GetPem(string type, byte[] data)
         {
             var pem = Encoding.UTF8.GetString(data);
@@ -258,7 +326,6 @@ namespace POD_Base_Service.Base
             var base64 = pem.Substring(start, (end - start));
             return Convert.FromBase64String(base64);
         }
-
         public static RSACryptoServiceProvider LoadRsaFile(string path)
         {
             using (var fs = File.OpenRead(path))
@@ -347,7 +414,7 @@ namespace POD_Base_Service.Base
                 var iq = binr.ReadBytes(elems);
 
                 // ------- create RSACryptoServiceProvider instance and initialize with public key -----
-                var cspParameters = new CspParameters {Flags = CspProviderFlags.UseMachineKeyStore};
+                var cspParameters = new CspParameters { Flags = CspProviderFlags.UseMachineKeyStore };
                 var rsa = new RSACryptoServiceProvider(1024, cspParameters);
                 var rsaParams = new RSAParameters
                 {
@@ -372,7 +439,6 @@ namespace POD_Base_Service.Base
                 binr.Close();
             }
         }
-
         private static int GetIntegerSize(BinaryReader binaryReader)
         {
             var bt = binaryReader.ReadByte();
@@ -386,7 +452,7 @@ namespace POD_Base_Service.Base
             {
                 var highByte = binaryReader.ReadByte();
                 var lowByte = binaryReader.ReadByte();
-                byte[] modint = {lowByte, highByte, 0x00, 0x00};
+                byte[] modint = { lowByte, highByte, 0x00, 0x00 };
                 count = BitConverter.ToInt32(modint, 0);
             }
             else
@@ -402,5 +468,7 @@ namespace POD_Base_Service.Base
             binaryReader.BaseStream.Seek(-1, SeekOrigin.Current); //last ReadByte wasn't a removed zero, so back up a byte
             return count;
         }
+
+        #endregion Signature
     }
 }

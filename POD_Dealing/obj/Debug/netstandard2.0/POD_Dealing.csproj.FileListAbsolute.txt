@@ -23,4 +23,28 @@ E:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Deal
 E:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csproj.CopyComplete
 E:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.dll
 E:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.pdb
-E:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csprojAssemblyReference.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.pdb
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.deps.json
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.dll
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Dealing.pdb
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.dll
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.pdb
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Dealing\obj\Debug\netstandard2.0\POD_Dealing.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Dealing\bin\Debug\netstandard2.0\POD_Base_Service.pdb

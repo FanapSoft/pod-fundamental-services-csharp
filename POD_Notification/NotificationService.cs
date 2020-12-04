@@ -5,110 +5,121 @@ using Newtonsoft.Json;
 using POD_Base_Service.Base;
 using POD_Base_Service.Result;
 using POD_Notification.Base;
+using POD_Notification.Base.Enum;
 using POD_Notification.Model.ServiceOutput;
 using POD_Notification.Model.ValueObject;
 using RestSharp;
 
 namespace POD_Notification
 {
-    public class NotificationService
+    public static class NotificationService
     {
-        private string baseAddress = "http://172.16.110.40:8017/v2/service/";
-
-        public void SendSms(SmsVo smsVo, Action<IRestResponse<ResponseSrv<SmsSrv>>> callback)
+        public static void SendSms(SmsVo smsVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>> callback)
         {
-            var url = $"{baseAddress}sms";
-            PrepareRestClient(url, smsVo,Method.POST, out var client, out var request);
-            callback(client.Execute<ResponseSrv<SmsSrv>>(request));
+            PrepareRestClient(ServiceCallProducts.SendSms, smsVo, Method.POST, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>(request));
         }
 
-        public void GetSmsStatus(SmsStatusVo smsStatusVo, Action<IRestResponse<ResponseSrv<SmsStatusSrv>>> callback)
+        public static void GetSmsStatus(SmsStatusVo smsStatusVo,
+            Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsStatusSrv>>>>> callback)
         {
-            var url = $"{baseAddress}sms/status/{smsStatusVo.NotificationMessageId}";
-            PrepareRestClient<SmsStatusVo>(url, null,Method.GET, out var client, out var request);
-            request.AddHeader(nameof(smsStatusVo.Token).GetPodName(), smsStatusVo.Token);
-            callback(client.Execute<ResponseSrv<SmsStatusSrv>>(request));
+            PrepareRestClient(ServiceCallProducts.GetSmsStatus, smsStatusVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsStatusSrv>>>>(request));
         }
 
-        public void SendValidationSms(ValidationSmsVo validationSmsVo, Action<IRestResponse<ResponseSrv<ValidationSmsSrv>>> callback)
+        public static void SendValidationSms(ValidationSmsVo validationSmsVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<ValidationSmsSrv>>>>> callback)
         {
-            var url = $"http://172.16.0.249:8017/v2/service/validationSms";
-            PrepareRestClient(url, validationSmsVo,Method.POST, out var client, out var request);
-            callback(client.Execute<ResponseSrv<ValidationSmsSrv>>(request));
+            PrepareRestClient(ServiceCallProducts.SendValidationSms, validationSmsVo,Method.POST, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<ValidationSmsSrv>>>>(request));
         }
 
-        public void GetValidationSmsStatus(ValidationSmsStatusVo validationSmsStatusVo, Action<IRestResponse<ResponseSrv<ValidationSmsStatusSrv>>> callback)
+        public static void GetValidationSmsStatus(ValidationSmsStatusVo validationSmsStatusVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<ValidationSmsStatusSrv>>>>> callback)
         {
-            var url = $"{baseAddress}validationSms/status/{validationSmsStatusVo.MessageId}";
-            PrepareRestClient<ValidationSmsStatusVo>(url, null,Method.GET, out var client, out var request);
-            request.AddHeader(nameof(validationSmsStatusVo.Token).GetPodName(), validationSmsStatusVo.Token);
-            callback(client.Execute<ResponseSrv<ValidationSmsStatusSrv>>(request));
+            PrepareRestClient(ServiceCallProducts.GetValidationSmsStatus, validationSmsStatusVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<ValidationSmsStatusSrv>>>>(request));
         }
-        public void GetSmsList(SmsListVo smsListVo, Action<IRestResponse<ResponseSrv<List<SmsListSrv>>>> callback)
+        public static void GetSmsList(SmsListVo smsListVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<SmsListSrv>>>>>> callback)
         {
-            var url = $"{baseAddress}sms";
-            PrepareRestClient(url, smsListVo,Method.GET, out var client, out var request);
-            callback(client.Execute<ResponseSrv<List<SmsListSrv>>>(request));
+            PrepareRestClient(ServiceCallProducts.GetSmsList, smsListVo,Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<SmsListSrv>>>>>(request));
         }
-        public void SendEmail(EmailVo emailVo, Action<IRestResponse<ResponseSrv<SmsSrv>>> callback)
+        public static void SendEmail(EmailVo emailVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>> callback)
         {
-            var url = $"{baseAddress}mail";
-            PrepareRestClient(url, emailVo, Method.POST, out var client, out var request);
-            callback(client.Execute<ResponseSrv<SmsSrv>>(request));
+            PrepareRestClient(ServiceCallProducts.SendEmail, emailVo, Method.POST, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>(request));
+        }
+        public static void GetEmailList(EmailListVo emailListVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<EmailListSrv>>>>>> callback)
+        {
+            PrepareRestClient(ServiceCallProducts.GetEmailList, emailListVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<EmailListSrv>>>>>(request));
+        }
+        public static void GetEmailInfo(EmailInfoVo emailInfoVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<EmailListSrv>>>>>> callback)
+        {
+            PrepareRestClient(ServiceCallProducts.GetEmailInfo, emailInfoVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<EmailListSrv>>>>>(request));
+        }
+        public static void SendPushNotification(PushNotificationByPeerIdVo pushNotificationByPeerIdVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>> callback)
+        {
+            PrepareRestClient(ServiceCallProducts.PushNotificationByPeerId, pushNotificationByPeerIdVo, Method.POST, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>(request));
+        }
+        public static void SendPushNotification(PushNotificationByAppIdVo pushNotificationByAppIdVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>> callback)
+        {
+            PrepareRestClient(ServiceCallProducts.PushNotificationByAppId, pushNotificationByAppIdVo, Method.POST, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsSrv>>>>(request));
+        }
+        public static void GetPushNotificationStatus(PushNotificationStatusVo pushNotificationStatusVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsStatusSrv>>>>> callback)
+        {
+            long productId;
+            if (pushNotificationStatusVo.StatusType == StatusType.received)
+                productId = ServiceCallProducts.GetPushNotificationStatusReceived;
+            else if (pushNotificationStatusVo.StatusType == StatusType.seen)
+                productId = ServiceCallProducts.GetPushNotificationStatusSeen;
+            else
+                productId = ServiceCallProducts.GetPushNotificationStatusAll;
+
+            PrepareRestClient(productId, pushNotificationStatusVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<SmsStatusSrv>>>>(request));
+        }
+        public static void GetPushNotificationList(PushNotificationListVo pushNotificationListVo, Action<IRestResponse<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<PushNotificationListSrv>>>>>> callback)
+        {
+            PrepareRestClient(ServiceCallProducts.GetPushNotificationList, pushNotificationListVo, Method.GET, out var client, out var request);
+            callback(client.Execute<ResultSrv<ServiceCallResultSrv<ResponseSrv<List<PushNotificationListSrv>>>>>(request));
         }
 
-        public void GetEmailList(EmailListVo emailListVo, Action<IRestResponse<ResponseSrv<List<EmailListSrv>>>> callback)
+        private static void PrepareRestClient<T>(long entityId, T objectVo,Method method, out RestClient client, out RestRequest request)
         {
-            var url = $"{baseAddress}mail";
-            PrepareRestClient(url, emailListVo, Method.GET, out var client, out var request);
-            callback(client.Execute<ResponseSrv<List<EmailListSrv>>>(request));
-        }
-        public void SendPushNotification(PushNotificationByPeerIdVo pushNotificationByPeerIdVo, Action<IRestResponse<ResponseSrv<SmsSrv>>> callback)
-        {
-            var url = $"{baseAddress}pushNotification";
-            PrepareRestClient(url, pushNotificationByPeerIdVo, Method.POST, out var client, out var request);
-            callback(client.Execute<ResponseSrv<SmsSrv>>(request));
-        }
-        public void SendPushNotification(PushNotificationByAppIdVo pushNotificationByAppIdVo, Action<IRestResponse<ResponseSrv<SmsSrv>>> callback)
-        {
-            var url = $"{baseAddress}pushNotification/appId";
-            PrepareRestClient(url, pushNotificationByAppIdVo, Method.POST, out var client, out var request);
-            callback(client.Execute<ResponseSrv<SmsSrv>>(request));
-        }
-        public void GetPushNotificationStatus(PushNotificationStatusVo pushNotificationStatusVo, Action<IRestResponse<ResponseSrv<SmsStatusSrv>>> callback)
-        {
-            var url = $"{baseAddress}pushNotification/status/{pushNotificationStatusVo.StatusType.ToString()}/{pushNotificationStatusVo.MessageId}";
-            PrepareRestClient<PushNotificationStatusVo>(url, null, Method.GET, out var client, out var request);
-            request.AddHeader(nameof(pushNotificationStatusVo.Token).GetPodName(), pushNotificationStatusVo.Token);
-            callback(client.Execute<ResponseSrv<SmsStatusSrv>>(request));
-        }
-        public void GetPushNotificationList(PushNotificationListVo pushNotificationListVo, Action<IRestResponse<ResponseSrv<List<PushNotificationListSrv>>>> callback)
-        {
-            var url = $"{baseAddress}pushNotification";
-            PrepareRestClient(url, pushNotificationListVo, Method.GET, out var client, out var request);
-            callback(client.Execute<ResponseSrv<List<PushNotificationListSrv>>>(request));
+            client = new RestClient(BaseUrl.ServiceCallAddress);
+            request = new RestRequest(Method.GET);
+            request.AddHeader(nameof(Config.TokenIssuer).GetPodName(), Config.TokenIssuer.ToString())
+                   .AddHeader("Content-Type", "application/x-www-form-urlencoded")
+                   .AddParameter("scProductId", entityId);
+
+            PrepareParameters(objectVo, request, method);
         }
 
-        private void PrepareRestClient<T>(string url, T objectVo,Method method, out RestClient client, out RestRequest request)
-        {
-            client = new RestClient(url);
-            request = new RestRequest(method);
-            if (objectVo != null)
-            {
-                PrepareParameters(objectVo, request,method);
-            }
-        }
-
-        private void PrepareParameters<T>(T objectVo, IRestRequest request,Method method)
+        private static void PrepareParameters<T>(T objectVo, IRestRequest request,Method method)
         {
             if (method == Method.POST)
             {
                 var parameters = objectVo.ToDictionaryHierachy(PodParameterName.ParametersName);
-                var token = parameters.FirstOrDefault(_ => _.Key.Equals("apiToken"));
-                request.AddHeader(token.Key, token.Value.ToString());
-                parameters.Remove(token.Key);
+                var apiToken = parameters.FirstOrDefault(_ => _.Key.Equals("apiToken"));
+                request.AddHeader(apiToken.Key, apiToken.Value.ToString());
+                parameters.Remove(apiToken.Key);
+
+                var serviceCallParameters = parameters.FirstOrDefault(_ => _.Key.Equals("serviceCallParameters")).Value as Dictionary<string,object>;
+                foreach (var parameter in serviceCallParameters)
+                {
+                    if (parameter.Key.Equals("_token_"))
+                    {
+                        request.AddHeader(parameter.Key, parameter.Value?.ToString());
+                    }
+                    else request.AddParameter(parameter.Key, parameter.Value);
+                }
+                parameters.Remove("serviceCallParameters");
+
                 var jasonString = JsonConvert.SerializeObject(parameters, Formatting.Indented);
-                request.AddParameter("application/json", jasonString, ParameterType.RequestBody);
+                request.AddParameter("body", jasonString);
             }
             else
             {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -116,12 +127,13 @@ namespace POD_Notification
                 if (parameters == null) return;
                 foreach (var parameter in parameters)
                 {
-                    if (parameter.Key.Equals("apiToken"))
+                    if (parameter.Key.Equals("apiToken") || parameter.Key.Equals("_token_"))
                     {
                         request.AddHeader(parameter.Key, parameter.Value);
                     }
                     else request.AddParameter(parameter.Key, parameter.Value);
                 }
+               
             }
         }
     }

@@ -12,3 +12,31 @@ E:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD
 E:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csproj.CopyComplete
 E:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.dll
 E:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.deps.json
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csprojAssemblyReference.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csproj.CoreCompileInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.AssemblyInfoInputs.cache
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.AssemblyInfo.cs
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csproj.CopyComplete
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.dll
+D:\New folder\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.pdb
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.deps.json
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.dll
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Notification.pdb
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csproj.CopyComplete
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.dll
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.pdb
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Notification\obj\Debug\netstandard2.0\POD_Notification.csprojAssemblyReference.cache
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Notification\bin\Debug\netstandard2.0\POD_Base_Service.pdb

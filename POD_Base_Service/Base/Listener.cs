@@ -24,6 +24,7 @@ namespace POD_Base_Service.Base
                 OnFailure(restResponse);
             }
         }
+
         public static void GetResult<T>(IRestResponse<ResultSrv<ServiceCallResultSrv<T>>> restResponse, out ResultSrv<ServiceCallResultSrv<T>> output)
         {
             output = new ResultSrv<ServiceCallResultSrv<T>>();
@@ -67,6 +68,32 @@ namespace POD_Base_Service.Base
                 OnFailure(restResponse);
             }
         }
+
+        public static void GetResult<T>(IRestResponse<ResultSrv<ServiceCallResultSrv<BankingSrv<T>>>> restResponse, out ResultSrv<ServiceCallResultSrv<BankingSrv<T>>> output)
+        {
+            output = new ResultSrv<ServiceCallResultSrv<BankingSrv<T>>>();
+            if (restResponse.IsSuccessful)
+            {
+                var resultSrv = restResponse.Data;
+                if (resultSrv.HasError)
+                {
+                    throw PodException.BuildException(new DeveloperException(resultSrv.ErrorCode, resultSrv.Message, resultSrv));
+                }
+
+                var bankingResult = resultSrv.Result.Result as BankingSrv<T>;
+                if (!bankingResult.IsSuccess)
+                {
+                    throw PodException.BuildException(new DeveloperException(int.Parse(bankingResult.MessageCode), bankingResult.Message, resultSrv));
+                }
+
+                output = resultSrv;
+            }
+            else
+            {
+                OnFailure(restResponse);
+            }
+        }
+
         public static void GetResult(IRestResponse<ResultSrv<ServiceCallResultSrv<PrivateCallSrv>>> restResponse, out ResultSrv<ServiceCallResultSrv<PrivateCallSrv>> output)
         {
             output = new ResultSrv<ServiceCallResultSrv<PrivateCallSrv>>();
@@ -99,6 +126,7 @@ namespace POD_Base_Service.Base
                 OnFailure(restResponse);
             }
         }
+
         public static void GetResult<T>(IRestResponse<ResponseSrv<T>> restResponse, out ResultSrv<T> output)
         {
             output = new ResultSrv<T>();
@@ -127,6 +155,7 @@ namespace POD_Base_Service.Base
                 OnFailure(restResponse);
             }
         }
+
         public static void GetResult<T>(IRestResponse<T> restResponse, out T output)
         {
             if (restResponse.IsSuccessful) output = restResponse.Data;
@@ -140,6 +169,7 @@ namespace POD_Base_Service.Base
                 throw PodException.BuildException(new DeveloperException((int)restResponse.StatusCode, restResponse.Content));
             }
         }
+
         public static void GetResult(IRestResponse restResponse, out string output)
         {
             if (restResponse.IsSuccessful) output = $"-- {(int)restResponse.StatusCode}-The operation was successful";
@@ -153,6 +183,7 @@ namespace POD_Base_Service.Base
                 throw PodException.BuildException(new DeveloperException((int)restResponse.StatusCode, restResponse.Content));
             }
         }
+
         private static void OnFailure(IRestResponse restResponse)
         {
             if (restResponse.ResponseStatus == ResponseStatus.TimedOut || restResponse.ResponseStatus == ResponseStatus.Error)

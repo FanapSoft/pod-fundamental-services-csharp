@@ -48,7 +48,7 @@ namespace POD_SSO.Model.OTP.ValueObject
             public Builder SetAuthorization(string keyId, string privateKey)
             {
                 var header = "host";
-                var dataToSign = "host: accounts.pod.land";
+                var dataToSign = "host: accounts.pod.ir";
                 //if (signType == SignType.HostDate)
                 //{
                 //    header += " date";

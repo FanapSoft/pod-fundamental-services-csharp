@@ -81,19 +81,19 @@ namespace POD_Base_Service
         }
 
         public static void PrepareRestClient<T>(long entityId, T objectVo, Dictionary<string, string> podParameterName,
-            out RestClient client, out RestRequest request)
+            out RestClient client, out RestRequest request,bool ignoreNullValue=true)
         {
             client = new RestClient(BaseUrl.ServiceCallAddress);
             request = new RestRequest(Method.GET);
             request.AddHeader(nameof(Config.TokenIssuer).GetPodName(), Config.TokenIssuer.ToString())
                    .AddParameter("scProductId", entityId);
-            PrepareParameters(objectVo, request, podParameterName);
+            PrepareParameters(objectVo, request, podParameterName,ignoreNullValue);
         }
 
         private static void PrepareParameters<T>(T objectVo, IRestRequest request,
-            Dictionary<string, string> podParameterName)
+            Dictionary<string, string> podParameterName,bool ignoreNullValue=true)
         {
-            var parameters = objectVo.FilterNotNull(podParameterName);
+            var parameters = objectVo.FilterNotNull(podParameterName,ignoreNullValue);
             if (parameters == null) return;
             foreach (var parameter in parameters)
             {

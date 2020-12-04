@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "DkxpB/qAD+Q2VKiEUulp5aUPkPWoXsjNDF4CF9Q5pBplPsrpHiTzu8Ul1SZjxIlZODaqOZB8qQpu6H4dsg/ffg==",
+  "success": true,
+  "projectFilePath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Notification\\POD_Notification.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\nadia\\.nuget\\packages\\restsharp\\106.6.9\\restsharp.106.6.9.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512",
+    "C:\\Users\\nadia\\.nuget\\packages\\pod_base_service\\4.0.0\\pod_base_service.4.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

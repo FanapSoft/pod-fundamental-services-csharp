@@ -8,7 +8,7 @@ namespace POD_Base_Service.Base
         /// Production : تمام سرویس ها بر روی سرور اصلی اجرا می شوند
         /// SandBox : تمام سرویس ها بر روی سرور تست اجرا می شوند
         /// </summary>
-        private static ServerType ServerType { get; set; }
+        public static ServerType ServerType { get; set; }
 
 
         /// <summary>

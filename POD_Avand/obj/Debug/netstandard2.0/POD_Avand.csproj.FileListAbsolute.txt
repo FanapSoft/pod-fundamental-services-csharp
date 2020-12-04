@@ -1,0 +1,13 @@
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\POD_Avand.deps.json
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\POD_Avand.dll
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.AssemblyInfoInputs.cache
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.AssemblyInfo.cs
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\POD_Avand.pdb
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.dll
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.pdb
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.csproj.CoreCompileInputs.cache
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\POD_Base_Service.dll
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\Newtonsoft.Json.dll
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\POD_Base_Service.pdb
+D:\pod-fundamental-services-csharp\POD_Avand\bin\Debug\netstandard2.0\Newtonsoft.Json.xml
+D:\pod-fundamental-services-csharp\POD_Avand\obj\Debug\netstandard2.0\POD_Avand.csproj.CopyComplete

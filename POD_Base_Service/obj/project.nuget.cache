@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "P9lXRAGfYT+9L6I3GfhHFeA+UFD74HtyInKMRbV/0nMho0P2YxW2X+QoDwARhDoNBa6akIcN8ePsJ8sR+EYE5A==",
+  "success": true,
+  "projectFilePath": "E:\\Fanap\\pod-fundamental-services-csharp\\POD_Base_Service\\POD_Base_Service.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\nadia\\.nuget\\packages\\restsharp\\106.6.9\\restsharp.106.6.9.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.componentmodel.annotations\\4.5.0\\system.componentmodel.annotations.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
