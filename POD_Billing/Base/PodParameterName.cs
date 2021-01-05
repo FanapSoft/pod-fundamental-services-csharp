@@ -106,8 +106,8 @@ namespace POD_Billing.Base
             {"DepositNumber", "depositNumber"},
             {"OnDemand", "onDemand"},
             {"MinAmount", "minAmount"},
-            {"MaxAmount", "maxAmount"}
-
+            {"MaxAmount", "maxAmount"},
+            {"UniqueId", "uniqueId"}
         };
 
         public static Dictionary<string, string> VoucherParametersName = new Dictionary<string, string>
