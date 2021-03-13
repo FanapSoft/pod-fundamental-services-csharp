@@ -1,6 +1,8 @@
-.suo
-.dll
-.pdb
-.cache
-.ide-shm
-.ide-wal
+*.suo
+*.dll
+*.pdb
+*.cache
+*.ide-shm
+*.ide-wal
+*.user
+*.sln.docstates
